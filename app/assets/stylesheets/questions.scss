@@ -1,0 +1,273 @@
+// Place all the styles related to the questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.question-status{
+  margin-bottom: 20px;
+  .title{
+    font-size: 26px;
+    line-height: 1;
+    font-weight: normal;
+  }
+  p{font-size: 13px;}
+}
+.more-tags-all{
+  text-align: left;
+}
+.count-wrap .box{
+  text-align: center;
+  margin-right: 5px;
+}
+.read-count{
+  color: #242729;
+  font-size: 11px;
+}
+
+/*
+ edit-main
+*/
+.edit-main{
+  width: 665px;
+}
+.edit-title{
+  width: 568px;
+  box-shadow: 0 1px 2px rgba(12,13,14,0.1) inset;
+}
+.edit-tags{
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(12,13,14,0.1) inset;
+}
+label{
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 17px;
+  color: #242729;
+  width: 60px;
+  display: inline-block;
+}
+.editor{
+  height: 200px;
+  background: #fefefe;
+  border: 1px solid #eee;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 1px 2px rgba(12,13,14,0.1) inset;
+}
+.editor-preview{
+  box-sizing: border-box;
+  padding: 10px 0;
+  border-top: 1px dotted #c8ccd0;
+  border-bottom: 1px dotted #c8ccd0;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 1.3;
+}
+.submit-button{
+  color: #FFF;
+  background-color: #0095ff;
+  border-color: #07c;
+  box-shadow: inset 0 1px 0 #66bfff;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor:pointer;
+  outline: none;
+  font-size: 13px;
+  padding:5px 5px 4px;
+  &hover{
+    background-color: #07c;
+    border-color: #005999;
+    box-shadow: inset 0 1px 0 #3af;
+  }
+}
+/*
+ edit-sideber
+*/
+.edit-sidebar{
+  align-self: flex-start;
+  width: 365px;
+  margin-left: auto;
+  word-wrap: break-word;
+  padding: 15px 15px 10px 15px;
+  background-color: #FFF8DC;
+  border: 1px solid #E0DCBF;
+  font-size: 14px;
+  margin-bottom: 1.5em;
+  box-sizing: border-box;
+}
+.edit-sidebar p{
+  margin-bottom: 12px;
+}
+.edit-sidebar p>a{
+  font-weight: bold;
+}
+.edit-sidebar>a{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/*
+ question show
+ */
+.question-show__head{
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  h2{
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 10px;
+    color: #242729;
+  }
+}
+.question-answer-head{
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  h2{
+    margin-bottom: 10px;
+    color: #242729;
+  }
+}
+.q-block{
+  display: flex;
+  padding: 12px 0 16px 0;
+}
+.q-show-link-box{
+  padding-top: 10px;
+}
+.q-show-link-box a{
+  color: #848d95;
+  font-size: 13px;
+  line-height: 17px;
+}
+.q-show-link-box a:hover{
+  color: #3b4045;
+}
+.q-show-link-box a:first-child{
+  margin-right: 8px;
+}
+.q-text-show{
+  font-size: 15px;
+  line-height: 20px;
+  color: #242729;
+  margin: 5px auto;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+.q-show-bg{
+  background: #e0eaf1;
+  padding: 8px;
+}
+.summary .q-show .user-name{
+  margin: 3px auto 2px;
+}
+.q-show-add-comment a{
+  font-size: 13px;
+  line-height: 17px;
+  color: #B5BBBF;
+}
+.q-show-add-comment a:hover{
+  color: #3af;
+}
+.evaluation{
+  color: #6a737c;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-right: 5px;
+  position: relative;
+}
+.evaluation:before{
+  display: block;
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 15px 15px 5px 15px;
+  border-color: #6a737c transparent transparent transparent;
+  bottom: -20px;
+  left: calc(50% - 15px);
+}
+.evaluation:after{
+  display: block;
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 5px 15px 15px 15px;
+  border-color: transparent transparent #6a737c transparent;
+  top: -20px;
+  left: calc(50% - 15px);
+}
+.evaluation-good{
+  display: block;
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  top: -25px;
+  z-index: 2;
+}
+.evaluation-bad{
+  display: block;
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: -25px;
+  z-index: 2;
+}
+//sidebar
+.question-show__status{
+  margin-bottom: 30px;
+  p{
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 17px;
+    color: #3b4045;
+    span:first-child{
+      color: #9199a1;
+      width: 70px;
+      display: inline-block;
+      padding-right: 10px;
+    }
+  }
+}
+.module {
+	.relative-q-title {
+    font-size: 15px;
+    color: #242729;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 12px;
+	}
+	#relative-q-list {
+		li {
+      display: flex;
+      height: 37px;
+      margin-bottom: 5px;
+			.propatytag {
+        font-size: 12px;
+        padding: 3px 0;
+        width: 38px;
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: 2px;
+        margin-right: 5px;
+        color: #333;
+        background: #ddd;
+        align-self: center;
+			}
+      .propatytag--active{
+        color: #FFF;
+        background: #5fba7d;
+      }
+      .q-link{
+        padding-top: 2px;
+        font-size: 13px;
+        display: inline-block;
+        width: calc(100% - 48px);
+        align-items: center;
+      }
+		}
+  }
+}
