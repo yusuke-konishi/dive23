@@ -12,10 +12,11 @@
     </div>
     <div class="q-wrap">
       <ul class="q-list">
+      <% @questions.each do |question| %>
         <li class="q-item">
           <div class="count-wrap">
             <div class="votes box">
-              <p>12<sapn class="num-text">票</sapn></p>
+              <p>0<sapn class="num-text">票</sapn></p>
             </div>
             <div class="status box">
               <p>0<span class="num-text">回答</span></p>
@@ -25,8 +26,10 @@
             </div>
           </div>
           <div class="summary">
-            <h3><a href="/questions/show" class="q-title">マルウェアが検出を試みるサンドボックスの比率について載っている文献を探しています</a></h3>
-            <p class="q-text">マルウェア解析のためのサンドボックスの実現手法としては，Xenなどのハードウェア仮想化技術やQEMUなどのエミュレーション技術が知られています． マルウェアの多くはこうしたサンドボックスを検出しようとする（evasive malware）ため，マルウェアから検出されにくいtransparentなサンドボックスが望まれています． しかし，RDTSCやICMP ...</p>
+            <h3>
+              <%= link_to question.title, question_path(question), class:"q-title" %>
+            </h3>
+            <p class="q-text"><%= question.content %>...</p>
             <a class="tag">swift3</a>
             <div class="user-block">
               <div class="log"><p><a>質問日時: </a>14年12月19日 8:02</p></div>
@@ -43,78 +46,11 @@
                   </p>
                 </div>
               </div>
+              <%= link_to "削除", question_path(question.id), method: :delete, data: { confirm: '本当に削除しますか？'},class:"delete_btn"%>
             </div><!-- user-block -->
           </div>
         </li>
-        <li class="q-item">
-          <div class="count-wrap">
-            <div class="votes box">
-              <p>0<sapn class="num-text">票</sapn></p>
-            </div>
-            <div class="status box">
-              <p>0<span class="num-text">回答</span></p>
-            </div>
-            <div class="views box">
-              <p><span class="read-count">1230件の閲覧数</span></p>
-            </div>
-          </div>
-          <div class="summary">
-            <h3><a href="/questions/show" class="q-title">CentOS6へPython3.5をSCL経由でインストールしたのですが、Apacheで利用するには？</a></h3>
-              <p class="q-text">きわめて微妙～な現象なので、説明がわかりにくく恐縮ですが 次のような当たり前の入力ボックスで <\input type="text" value="12345678" style="text-align:right;">ボックス内の文字の真ん中（たとえば4と5の間）をマウスで選択して、 その前後を交互に選択状態にするように カーソルを大きく（...</p>
-              <a class="tag">python</a>
-              <a class="tag">centos</a>
-            <div class="user-block">
-              <div class="log"><p><a>質問日時: </a>14年12月19日 8:02</p></div>
-              <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
-                <div class="user-name-box">
-                  <a class="user-name" href="">yamada</a>
-                  <p class="user-info">
-                    <span class="reputation-score" title="信用度スコア: ">66</span>
-                    <span class="badge" title="5 個の銅バッジ">
-                      <span class="badge-icon badge3"></span>
-                      <span class="badgecount">5</span>
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div><!-- user-block -->
-          </div>
-        </li>
-        <li class="q-item">
-          <div class="count-wrap">
-            <div class="votes box">
-              <p>0<sapn class="num-text">票</sapn></p>
-            </div>
-            <div class="status box">
-              <p>0<span class="num-text">回答</span></p>
-            </div>
-            <div class="views box">
-              <p><span class="read-count">1230件の閲覧数</span></p>
-            </div>
-          </div>
-          <div class="summary">
-            <h3><a href="/questions/show" class="q-title">Swift3でUIImageの色情報を抜き出す</a></h3>
-            <p class="q-text">マルウェア解析のためのサンドボックスの実現手法としては，Xenなどのハードウェア仮想化技術やQEMUなどのエミュレーション技術が知られています． マルウェアの多くはこうしたサンドボックスを検出しようとする（evasive malware）ため，マルウェアから検出されにくいtransparentなサンドボックスが望まれています． しかし，RDTSCやICMP ...</p>
-            <a class="tag">swift3</a>
-            <div class="user-block">
-              <div class="log"><p><a>質問日時: </a>14年12月19日 8:02</p></div>
-              <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
-                <div class="user-name-box">
-                  <a class="user-name" href="">yamada</a>
-                  <p class="user-info">
-                    <span class="reputation-score" title="信用度スコア: ">66</span>
-                    <span class="badge" title="5 個の銅バッジ">
-                      <span class="badge-icon badge3"></span>
-                      <span class="badgecount">5</span>
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div><!-- user-block -->
-          </div>
-        </li>
+      <% end %>
       </ul>
     </div>
   </main>

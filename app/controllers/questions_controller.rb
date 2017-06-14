@@ -1,8 +1,9 @@
 class QuestionsController < ApplicationController
+  # before_action :authenticate_user!
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
-      @question = Question.all
+      @questions = Question.all
   end
 
   def new
@@ -15,7 +16,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(questions_params)
-    @question.user_id = current_user.id
+    # @question.user_id = current_user.id
     if @question.save
       redirect_to root_path, notice:"投稿されました"
     else
