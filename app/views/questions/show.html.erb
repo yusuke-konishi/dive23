@@ -1,5 +1,5 @@
 <div class="__head question-show__head">
-  <h2>このプログラムの言語をどうにかして変えられますか？</h2>
+  <h2><%= @question.title %></h2>
 </div>
 <div class="content">
   <main>
@@ -11,7 +11,7 @@
           <a class="evaluation-bad"></a>
         </div>
         <div class="summary">
-          <p class="q-text-show">マルウェア解析のためのサンドボックスの実現手法としては，Xenなどのハードウェア仮想化技術やQEMUなどのエミュレーション技術が知られています． マルウェアの多くはこうしたサンドボックスを検出しようとする（evasive malware）ため，マルウェアから検出されにくいtransparentなサンドボックスが望まれています． しかし，RDTSCやICMP ...</p>
+          <p class="q-text-show"><%= @question.content %></p>
           <a class="tag">swift3</a>
           <div class="q-show-link-box">
             <a href="#">共有</a><a href="#">この回答を改善する</a>
@@ -28,6 +28,7 @@
               </div>
             </div>
           </div><!-- user-block -->
+          <%= link_to "編集", edit_question_path(@question.id), class:"q-title" %>
           <div class="q-show-add-comment">
             <a href="#">コメント追加</a>
           </div>
