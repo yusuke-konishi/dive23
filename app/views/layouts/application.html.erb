@@ -20,8 +20,13 @@
           </form>
         </div>
         <div class="right-col">
-          <a href="" class="login">ログイン</a>
-          <a href="" class="button">登録</a>
+          <% if user_signed_in? %>
+          <!--<a href="/users/edit" class="login">マイページ</a>-->
+          <!--<a href="/users/sign_out" class="login">ログアウト</a>-->
+          <% else %>
+          <a href="/users/sign_in" class="login">ログイン</a>
+          <a href="/users/sign_up" class="button">登録</a>
+          <% end %>
         </div>
       </div>
     </div>
