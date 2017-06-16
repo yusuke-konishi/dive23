@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614105628) do
+ActiveRecord::Schema.define(version: 20170616074751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
@@ -24,6 +31,17 @@ ActiveRecord::Schema.define(version: 20170614105628) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "tag"
+    t.string   "name_en"
+    t.string   "name_ja"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["name_en"], name: "index_tags_on_name_en", unique: true, using: :btree
+  add_index "tags", ["name_ja"], name: "index_tags_on_name_ja", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
