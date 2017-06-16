@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :bookmarks
   root 'top#index'
   resources 'questions'
   resources 'tags'
