@@ -44,3 +44,11 @@ group :development, :test do
 end
 
 gem 'devise'
+
+group :development do
+  gem 'dotenv-rails'
+end
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
