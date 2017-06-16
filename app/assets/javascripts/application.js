@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $("#star").click(function () {
+    $(this).toggleClass("star-on");
+  });
+});

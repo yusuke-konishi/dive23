@@ -183,6 +183,20 @@ label{
 .q-show-add-comment a:hover{
   color: #3af;
 }
+.star{
+  height: 26px;
+  width: 30px;
+  cursor: pointer;
+  display: block;
+  margin-top: 30px;
+  margin-left: 8px;
+}
+.star-off polygon{
+  fill:#ccc;
+}
+.star-on polygon{
+  fill:#ffd83d;
+}
 .evaluation{
   color: #6a737c;
   width: 50px;
