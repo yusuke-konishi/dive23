@@ -5,25 +5,21 @@
   <h2>すぐにご利用いただけますので、あなたのスタック・オーバーフロー アカウントを作成ください。</h2>
   <br>
 
-
+  <!-- 名前入力用のフィールドを追加 -->
   <div class="field">
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス（必須ですが、公開はされません）" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
   </div>
   <br>
   <br>
 
   <div class="field">
-    <% if @minimum_password_length %>
-    (最低 <%= @minimum_password_length %> 文字)
-    <% end %><br />
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
+  </div>
+  <br>
+  <br>
+
+  <div class="field">
     <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
-  </div>
-  <br>
-  <br>
-
-
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード（確認）" %>
   </div>
   <br>
   <br>

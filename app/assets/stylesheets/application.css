@@ -249,6 +249,36 @@
    display: flex;
    align-items: center;
  }
+ .right-col .mypage{
+   padding: 0 12px;
+   width: 80px;
+   height: 32px;
+   display: flex;
+   align-items: center;
+   margin-right: 10px;
+   color: #07C;
+   font-size: 11px;
+ }
+ .right-col .mypage:hover{
+   color: #005999;
+   background-color: rgba(0,119,204,0.1);
+   font-size: 11px;
+ }
+ .right-col .logout{
+   padding: 0 12px;
+   width: 80px;
+   height: 32px;
+   display: flex;
+   align-items: center;
+   margin-right: 10px;
+   color: #07C;
+   font-size: 11px;
+ }
+ .right-col .logout:hover{
+   color: #005999;
+   background-color: rgba(0,119,204,0.1);
+   font-size: 11px;
+ }
  .right-col .login{
    padding: 0 12px;
    width: 80px;
