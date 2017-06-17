@@ -27,12 +27,15 @@
         </ul>
       </div>
       <ul class="u-list">
+      <% @users.each do |user| %>
         <li class="u-item">
             <div class="user-block">
               <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/fde/aaa/150x150.png" alt=""></div>
+                <div class="user-avatar">
+                  <%= profile_img(user) %>
+                </div>
                 <div class="user-name-box">
-                  <a class="user-name" href="/users/show/">yamada</a>
+                  <%= link_to user.name, user_path(user), class:"user-name" %>
                   <div class="user-info">
                     <p class="reputation-score" title="信用度スコア: ">66</p>
                     <p class="u-tags">swift, ios, javascript</p>
@@ -41,62 +44,7 @@
               </div>
             </div><!-- user-block -->
         </li>
-        <li class="u-item">
-            <div class="user-block">
-              <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/abc/333/150x150.png" alt=""></div>
-                <div class="user-name-box">
-                  <a class="user-name" href="/users/show/">yamada</a>
-                  <div class="user-info">
-                    <p class="reputation-score" title="信用度スコア: ">66</p>
-                    <p class="u-tags">swift, ios, javascript</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- user-block -->
-        </li>
-        <li class="u-item">
-            <div class="user-block">
-              <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
-                <div class="user-name-box">
-                  <a class="user-name" href="/users/show/">yamada</a>
-                  <div class="user-info">
-                    <p class="reputation-score" title="信用度スコア: ">66</p>
-                    <p class="u-tags">swift, ios, javascript</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- user-block -->
-        </li>
-        <li class="u-item">
-            <div class="user-block">
-              <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/862/ccc/150x150.png" alt=""></div>
-                <div class="user-name-box">
-                  <a class="user-name" href="/users/show/">yamada</a>
-                  <div class="user-info">
-                    <p class="reputation-score" title="信用度スコア: ">66</p>
-                    <p class="u-tags">swift, ios, javascript</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- user-block -->
-        </li>
-        <li class="u-item">
-            <div class="user-block">
-              <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/dfd/bbb/150x150.png" alt=""></div>
-                <div class="user-name-box">
-                  <a class="user-name" href="/users/show">yamada</a>
-                  <div class="user-info">
-                    <p class="reputation-score" title="信用度スコア: ">66</p>
-                    <p class="u-tags">swift, ios, javascript</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- user-block -->
-        </li>
+      <% end %>
       </ul>
     </div>
   </main>
