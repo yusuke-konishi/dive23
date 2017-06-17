@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
-  root 'top#index'
-  resources 'questions'
-  resources 'users', only: [:index, :show]
-  resources 'tags'
-  resources 'bookmarks'
   devise_for :users, controllers: {
+    registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+  root 'top#index'
+  resources 'questions'
+  resources 'tags'
+  resources 'bookmarks'
+  resources 'users', only: [:index, :show]
+
   if Rails.env.development?
    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
