@@ -1,4 +1,4 @@
 class TagsController < ApplicationController
-  def create
+  def index
   end
 end
