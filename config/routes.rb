@@ -11,18 +11,12 @@ Rails.application.routes.draw do
   resources 'questions'
   resources 'tags'
   resources 'bookmarks'
-
+  resources 'users', only: [:index, :show]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  resources 'users', only: [:index, :show]
-
-
-  if Rails.env.development?
-   mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
