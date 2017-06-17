@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170617062228) do
+
+ActiveRecord::Schema.define(version: 20170617041940) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,15 +60,19 @@ ActiveRecord::Schema.define(version: 20170617062228) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+
     t.string   "uid",                    default: "", null: false
     t.string   "provider",               default: "", null: false
     t.string   "image_url"
     t.string   "name"
+
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+
     t.string   "avatar"
+
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
