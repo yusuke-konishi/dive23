@@ -210,3 +210,44 @@ main .__head .user-links a:hover{
 .profiele-other .ic_time{
   background-image: url(ic_time.svg);
 }
+
+// ユーザー新規登録画面　users/sign_in
+.user_new_content{
+
+}
+
+// ユーザー編集画面
+.user_edit_content{
+  width: 400px;
+  padding: 30px 0 50px;
+  margin: auto;
+   input[type="text"], input[type="email"], input[type="password"]{
+     width: 400px;
+     margin-bottom: 10px;
+   }
+   label{
+     width: auto;
+     margin: 3px auto;
+   }
+   .cancel_btn{
+     margin: 0 30px 0 10px;
+     width: 80px;
+     height: 32px;
+     display: inline-block;
+     transition: background-color cubic-bezier(.165, .84, .44, 1) .25s,border-bottom-color ease-in-out .25s;
+     &:hover{
+       background-color: rgba(200,30,0,0.1);
+       color: #a33;
+     }
+   }
+   .success_btn{
+     width: 80px;
+     height: 32px;
+     display: inline-block;
+     transition: background-color cubic-bezier(.165, .84, .44, 1) .25s,border-bottom-color ease-in-out .25s;
+     &:hover{
+       background-color: rgba(0,119,204,0.1);
+       color: #336;
+     }
+   }
+}
