@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'top#index'
   resources 'questions'
+  resources 'users', only: [:index, :show]
   resources 'tags'
   resources 'bookmarks'
   devise_for :users, controllers: {
