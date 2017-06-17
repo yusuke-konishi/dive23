@@ -4,12 +4,21 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   root 'top#index'
   resources 'questions'
   resources 'tags'
   resources 'bookmarks'
+
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   resources 'users', only: [:index, :show]
+
 
   if Rails.env.development?
    mount LetterOpenerWeb::Engine, at: "/letter_opener"
