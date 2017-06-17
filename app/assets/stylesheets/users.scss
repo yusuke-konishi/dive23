@@ -1,0 +1,212 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.u-head{
+  display: flex;
+  margin: 20px auto;
+}
+.u-search{
+  display: flex;
+  justify-content: flex-start;
+  input[type="text"]{
+    box-shadow: 0 1px 2px rgba(12,13,14,0.1) inset;
+    &:focus{
+      border: 1px solid #07C;
+    }
+  }
+  span{
+    font-size: 14px;
+    line-height: 18px;
+    color: #242729;
+    margin-top: 8px;
+  }
+}
+
+.u-head-list{
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  a{
+    color: #6a737c;
+    font-size: 12px;
+    margin-right: 3px;
+    padding: 4px 6px;
+  }
+  a.active{
+    color: #0C0D0E;
+    font-weight: 400;
+    border-bottom: 1px solid #f69c55;
+  }
+}
+.u-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.u-item {
+  padding: 5px 6px 7px 7px;
+  margin-bottom: 16px;
+  width: 25%;
+  box-sizing: border-box;
+  transition:.1s ease-in-out;
+  &:hover{
+    background: #f4f8fb;
+  }
+  .user{
+    display: flex;
+  }
+  .user-avatar{
+    width: 48px;
+    height: 48px;
+    margin-right: 5px;
+  }
+  .user-name-box{
+    display: flex;
+    flex-direction: column;
+  }
+  .user-avatar>img{
+    width: 100%;
+  }
+  .reputation-score{
+    margin-bottom: 20px;
+  }
+  .user-name{
+    color: #07C;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+  }
+  .user-name:hover{
+    color: #3af;
+  }
+}
+
+// user show
+.user-show .__head ul{
+  margin-left: inherit;
+}
+.user-links{
+  display: flex;
+  margin-left: auto;
+  margin-bottom: 3px;
+}
+main .__head .user-links a{
+  color: #07C;
+  font-size: 12px;
+  line-height: 21px;
+  padding-left: 20px;
+  padding-right: 5px;
+  background-repeat: no-repeat;
+}
+main .__head .user-links a:hover{
+  color: #3af;
+}
+.meta-user-icon{
+  background-image: url(ic_meta.svg);
+  background-position: 2px 50%;
+}
+.net-pf-icon{
+  background-image: url(ic_message.svg);
+  background-position: 5px 50%;
+}
+
+.u_s-wrap{
+  padding-top: 44px;
+}
+.profile{
+  display: flex;
+}
+.profiele-card{
+  border: 1px solid #c8ccd0;
+  border-radius: 4px;
+  text-align: center;
+  padding: 17px;
+  box-shadow: inset 0 130px 0 #e7e8ea;
+  width: 220px;
+  box-sizing: border-box;
+  margin-right: 40px;
+}
+.profiele-image{
+  width: 164px;
+  height: 164px;
+  margin: 0 auto 8px;
+}
+.profiele-image img{
+  width: 100%;
+}
+
+.user-trust{
+  font-size: 22px;
+  line-height: 17px;
+  color: #181a1c;
+}
+.user-trust span{
+  font-size: 11px;
+  color: #999;
+  padding-left: 6px;
+}
+.profiele-other{
+  width: 266px;
+  margin-left: auto;
+}
+.user-name{
+  color: #0C0D0E;
+  font-weight: 700;
+  font-size: 28px;
+  margin: 10px 0 6px 0;
+  line-height: 28px;
+  word-break: break-all;
+}
+.user-card-name .user-name,.user-card-tag{
+  display: inline-block;
+}
+.user-card-tag{
+  font-size: 11px;
+  line-height: 24px;
+  color: #fff;
+  background: #07C;
+  padding: 0 5px;
+  font-weight: bold;
+  border-radius: 3px;
+  vertical-align: text-bottom;
+}
+.profile-text{
+  font-size: 15px;
+  line-height: 20px;
+  color: #242729;
+}
+.profiele-other .fx3-box{
+  display: flex;
+  padding-top: 10px;
+}
+.fx3-box p{
+  font-size: 17px;
+  line-height: 1;
+  color: #242729;
+  flex-grow: 1;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.profiele-other .fx3-box span,.profiele-other .item{
+  font-size: 13px;
+  line-height: 17px;
+  color: #666;
+}
+.profiele-other .fx3-box span{
+  display: block;
+  font-weight: normal;
+}
+.profiele-other .item{
+  margin-bottom: 10px;
+  padding-left: 20px;
+  background-repeat: no-repeat;
+  background-size: 15px;
+}
+.profiele-other .ic_refresh{
+  background-image: url(ic_refresh.svg);
+}
+.profiele-other .ic_eye{
+  background-image: url(ic_eye.svg);
+}
+.profiele-other .ic_time{
+  background-image: url(ic_time.svg);
+}
