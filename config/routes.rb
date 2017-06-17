@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   root 'top#index'
   resources 'questions'
   resources 'tags'
@@ -12,8 +14,9 @@ Rails.application.routes.draw do
   resources 'users', only: [:index, :show]
 
   if Rails.env.development?
-   mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
