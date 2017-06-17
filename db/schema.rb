@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 20170617062228) do
     t.string   "title"
     t.string   "content"
     t.integer  "user_id"
-    t.integer  "vote_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "vote_count", default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "tags", force: :cascade do |t|
