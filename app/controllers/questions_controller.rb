@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
   def new
     if params[:back]
       @question = Question.new(questions_params)
+      @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
     else
       @question = Question.new
     end
@@ -21,6 +22,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(questions_params)
     @question.user_id = current_user.id
+    @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
     if @question.save
       redirect_to root_path, notice:"投稿されました"
     else
