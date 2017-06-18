@@ -1,12 +1,39 @@
 <% answers.each do |answer| %>
   <% unless answer.id.nil? %>
-    <li>
-      <%= answer.user.name %>
-      <%= answer.content %>
-      <% if current_user.id == answer.user.id %>
-        <%= link_to '回答を編集する', edit_question_answer_path(question, answer) %>
-        <%= link_to '回答を削除する', question_answer_path(question, answer), method: :delete, remote: true, data: { confirm: '回答を削除しますか？' } %>
-      <% end %>
+    <li class="q-item">
+      <div class="evaluation">
+        <a class="evaluation-good"></a>
+        <p id="evaluation-count">0</p>
+        <a class="evaluation-bad"></a>
+      </div>
+      <div class="summary">
+        <p class="q-text-show"><%= answer.content %></p>
+        <div class="q-show-link-box">
+          <a href="#">共有</a><a href="#">この質問を改善する</a>
+        </div>
+        <div class="user-block">
+          <div class="log"><p>回答日時:30分前</p></div>
+          <div class="user">
+            <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
+            <div class="user-name-box">
+              <a class="user-name" href=""><%= answer.user.name %></a>
+              <p class="user-info">
+                <span class="reputation-score" title="信用度スコア: ">66</span>
+                <span class="badge" title="5 個の銅バッジ">
+                  <span class="badge-icon badge3"></span>
+                  <span class="badgecount">5</span>
+                </span>
+              </p>
+            </div>
+          </div>
+          <% if current_user.id == answer.user.id %>
+            <p class="delete">
+              <%= link_to '削除', question_answer_path(question, answer), method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
+            </p>
+          <% end %>
+        </div><!-- user-block -->
+      </div>
     </li>
+
   <% end %>
 <% end %>
