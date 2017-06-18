@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # tagのアソシエーションと Userレコード削除時に該当タグも消える
   has_many :tags, dependent: :destroy
   has_many :questions
-  has_many :answers
+  has_many :answers, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :votes, dependent: :destroy
 

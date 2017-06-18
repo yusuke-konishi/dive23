@@ -1,0 +1,12 @@
+<% answers.each do |answer| %>
+  <% unless answer.id.nil? %>
+    <li>
+      <%= answer.user.name %>
+      <%= ansewer.content %>
+      <% if current_user.id == answer.user.id %>
+        <%= link_to ‘回答を編集する’, edit_question_answer_path(question, answer) %>
+        <%= link_to ‘回答を削除する’, question_answer_path(question, answer), method: :delete, remote: true, data: { confirm: ‘回答を削除しますか？’ } %>
+      <% end %>
+    </li>
+  <% end %>
+<% end %>

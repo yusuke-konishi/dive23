@@ -78,11 +78,16 @@
           </div><!-- user-block -->
         </div>
       </li>
+      <!-- 回答一覧表示 -->
+      <div id="answers_area">
+    　  <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
+      </div>
     </ul>
     <div class="answer">
       <h2>回答</h2>
       <div class="editor">
         <p style="text-align:center">editer入る予定</p>
+        <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
       </div>
       <div class="editor-preview"><p style="text-align:center">preview入る予定</p></div>
     </div>

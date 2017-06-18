@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   root 'top#index'
-  resources 'questions'
+  resources :questions do
+    resources :answers
+    post :confirm, on: :collection
+  end
   resources 'tags'
   resources 'bookmarks'
   resources 'users', only: [:index, :show]
