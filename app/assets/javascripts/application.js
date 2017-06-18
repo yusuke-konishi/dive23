@@ -22,3 +22,8 @@ $(function(){
     $(this).toggleClass("star-on");
   });
 });
+
+$(document).on 'ready page:load', ->
+  $('#question_tag_list').tagit
+    singleField: true,
+    availableTags: myProject.all_tag_list

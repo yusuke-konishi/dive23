@@ -12,8 +12,8 @@
  *
  *= require_tree .
  *= require_self
- *= require 'jquery-ui/autocomplete'
- *= require 'jquery.tagit'
+ *= require jquery-ui/autocomplete
+ *= require jquery.tagit
  */
  /*
    reset
