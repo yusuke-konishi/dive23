@@ -1,7 +1,7 @@
 {
   "name": "dive23",
   "scripts": {
-    "postdeploy": "bundle exec rake db:migrate"
+    "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
     "LANG": {
