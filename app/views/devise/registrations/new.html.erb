@@ -1,39 +1,14 @@
-<div class="content">
-
+<div class="sigin_and_signup_content">
+  <%= devise_error_messages! %>
+  <h2 class="login_title">すぐにご利用いただけますので、あなたのスタック・オーバーフロー アカウントを作成ください。</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-  <h2>すぐにご利用いただけますので、あなたのスタック・オーバーフロー アカウントを作成ください。</h2>
-  <br>
-
-  <!-- 名前入力用のフィールドを追加 -->
-  <div class="field">
-    <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
-  </div>
-  <br>
-  <br>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
-  </div>
-  <br>
-  <br>
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
-  </div>
-  <br>
-  <br>
-
-  <div class="actions">
-    <%= f.submit "登録", class: "btn btn-primary btn-block" %>
-  </div>
-
-<br>
-<br>
-
-<%= render "devise/shared/links" %>
-
-<% end %>
-
+    <p class="login_title">メールアドレスで登録</p>
+    <%= f.text_field :name, class:"login_from", placeholder: "名前", :required => true %>
+    <%= f.email_field :email, autofocus: true, class:"login_from", placeholder: "メールアドレス",:required => true %>
+    <%= f.password_field :password, autocomplete: "off", class:"login_from", placeholder: "パスワード", :required => true %>
+    <div class="actions">
+      <%= f.submit "登録",class:"login_btn" %>
+    </div>
+    <%= render "devise/shared/links" %>
+  <% end %>
 </div>
-<br><br>

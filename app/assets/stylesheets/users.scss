@@ -210,3 +210,136 @@ main .__head .user-links a:hover{
 .profiele-other .ic_time{
   background-image: url(ic_time.svg);
 }
+
+// ユーザー新規登録画面　users/sign_in
+.sigin_and_signup_content{
+  padding: 20px 0 50px;
+  #error_explanation{
+    font-size: 14px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    width: 800px;
+    background-color: rgba(204,19,0,0.1);
+    h2{
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    li{
+      color: #c30;
+    }
+    margin-bottom: 20px;
+  }
+  form{
+    width: 400px;
+    margin: auto;
+  }
+  h2{
+    margin-bottom: 20px;
+  }
+  .login_title{
+    text-align: center;
+  }
+  .login_from,input[type="password"] {
+    margin: auto;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  input[type="checkbox"]+label {
+    width: 200px;
+    margin: 20px auto 0;
+  }
+  a{
+    display: block;
+    margin-top: 3px;
+  }
+  .login_btn{
+    margin: 10px 10px 10px;
+    padding: 3px 8px;
+    color: #09f;
+    display: block;
+    transition: background-color cubic-bezier(.165, .84, .44, 1) .35s;
+    &:hover{
+      background-color: rgba(0,119,204,0.1);
+    }
+  }
+}
+
+// ユーザー編集画面
+.user_edit_content{
+  width: 800px;
+  padding: 30px 160px 80px 0;
+  margin: auto;
+  .user_info_title{
+    text-align: center;
+    margin: 0 0 20px 100px;
+  }
+  input:focus{
+    outline: none;
+  }
+  input[type="text"], input[type="email"], input[type="password"]{
+    width: 400px;
+    margin-bottom: 10px;
+  }
+  label{
+    width: auto;
+    margin: 3px auto;
+    display: block;
+    color: #808080;
+  }
+  .user_info{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .mypage_image_content {
+    text-align: center;
+    position: relative;
+    margin-right: 30px;
+    img{
+      width: 200px;
+      text-align: center;
+    }
+    .file{
+      color: white;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 6px 0 3px;
+      width: 200px;
+      height: 20px;
+      margin-top: -5px;
+      font-weight: lighter;
+      transition: background-color ease-in-out .25s;
+      position: absolute;
+      left: calc(50% - 100px);
+      &:hover{
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+    }
+    input[type="file"]{
+      display: none;
+    }
+  }
+  .cancel_btn{
+    margin: 0 30px 0 10px;
+    width: 80px;
+    height: 32px;
+    color: #a33;
+    display: inline-block;
+    transition: background-color ease-in-out .25s;
+    &:hover{
+      background-color: rgba(200,30,0,0.1);
+      color: #c33;
+    }
+  }
+  .success_btn{
+    width: 80px;
+    height: 32px;
+    display: inline-block;
+    transition: background-color ease-in-out .25s;
+    &:hover{
+      background-color: rgba(0,119,204,0.1);
+      color: #07c;
+    }
+  }
+}
