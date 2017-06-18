@@ -14,16 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require jquery-ui/autocomplete
-//= require tag-it
 
 $(function(){
   $("#star").click(function () {
     $(this).toggleClass("star-on");
   });
 });
-
-$(document).on 'ready page:load', ->
-  $('#question_tag_list').tagit
-    singleField: true,
-    availableTags: myProject.all_tag_list
