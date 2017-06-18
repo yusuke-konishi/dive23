@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :questions do
     resources :answers
-    post :confirm, on: :collection
   end
   resources 'tags'
   resources 'bookmarks'

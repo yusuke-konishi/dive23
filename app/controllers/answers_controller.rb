@@ -8,10 +8,15 @@ class AnswersController < ApplicationController
         format.js { render :index }
       else
         format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity}
       end
     end
   end
-
+  def destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    render :index
+  end
   private
     def answer_params
       params.require(:answer).permit(:question_id, :content)
