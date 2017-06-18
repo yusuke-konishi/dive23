@@ -30,8 +30,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'bullet'
   gem 'spring'
-  gem 'web-console', '~> 2.0'
-  gem 'byebug'
   gem 'pry-rails'
   gem 'hirb'
   gem 'hirb-unicode'
@@ -40,4 +38,8 @@ end
 group :development do
   gem 'dotenv-rails'
   gem 'letter_opener_web'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
