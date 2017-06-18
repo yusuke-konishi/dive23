@@ -12,6 +12,9 @@ gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'acts-as-taggable-on'
+gem 'jquery-ui-rails'
+gem 'gon'
 
 # admin
 gem 'rails_admin'
