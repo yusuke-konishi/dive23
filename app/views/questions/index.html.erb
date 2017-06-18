@@ -27,7 +27,7 @@
           </div>
           <div class="summary">
             <h3>
-              <%= link_to question.title, question_path(question), class:"q-title" %>
+              <%= link_to question.title, question_path(question),method:"get", class:"q-title" %>
             </h3>
             <p class="q-text"><%= question.content %>...</p>
             <a class="tag">swift3</a>
@@ -37,6 +37,7 @@
                 <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
                 <div class="user-name-box">
                   <a class="user-name" href="">yamada</a>
+                  <%= link_to question.user.name, user_path(question.user) %>
                   <p class="user-info">
                     <span class="reputation-score" title="信用度スコア: ">66</span>
                     <span class="badge" title="5 個の銅バッジ">
