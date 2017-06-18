@@ -8,7 +8,7 @@
       </ul>
   <% end %>
   <%= f.hidden_field :question_id %>
-  <%= f.text_field :content, class:"editor" %>
+  <%= f.text_area :content, class:"editor" %>
   <div class="editor-preview"><p style="text-align:center">preview入る予定</p></div>
   </div>
   <%= f.submit class:"submit-button",value:"回答を投稿" %>
