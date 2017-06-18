@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery-ui/autocomplete
+//= require tag-it
 
 $(function(){
   $("#star").click(function () {
