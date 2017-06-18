@@ -212,8 +212,58 @@ main .__head .user-links a:hover{
 }
 
 // ユーザー新規登録画面　users/sign_in
-.user_new_content{
-
+.sigin_and_signup_content{
+  padding: 20px 0 50px;
+  #error_explanation{
+    font-size: 14px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    width: 800px;
+    background-color: rgba(204,19,0,0.1);
+    h2{
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    li{
+      color: #c30;
+    }
+    margin-bottom: 20px;
+  }
+  form{
+    width: 400px;
+    margin: auto;
+  }
+  h2{
+    margin-bottom: 20px;
+  }
+  .login_title{
+    text-align: center;
+  }
+  .login_from,input[type="password"] {
+    margin: auto;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  input[type="checkbox"]+label {
+    width: 200px;
+    margin: 20px auto 0;
+  }
+  a{
+    display: block;
+    margin-top: 3px;
+  }
+  .login_btn{
+    margin: 10px 10px 10px;
+    padding: 3px 8px;
+    color: #09f;
+    display: block;
+    transition: background-color cubic-bezier(.165, .84, .44, 1) .35s;
+    &:hover{
+      background-color: rgba(0,119,204,0.1);
+    }
+  }
 }
 
 // ユーザー編集画面
