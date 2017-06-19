@@ -6,7 +6,7 @@
     <div class="q-list">
       <div class="q-block">
         <div class="evaluation">
-          <a class="evaluation-good"></a>
+          <%= link_to "", plus_question_question_votes_path(question_id: @question.id), method: :post, data: { confirm: '+1 投票しますか？' }, class: 'evaluation-good' %>
           <p id="evaluation-count"><%= @question.vote_count %></p>
           <a class="evaluation-bad"></a>
           <svg version="1.1" id="star" class="star star-off" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
