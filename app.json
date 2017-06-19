@@ -21,6 +21,12 @@
     },
     "HEROKU_APP_NAME": {
       "required": true
+    },
+    "SENDGRID_PASSWORD": {
+      "generator":"secret"
+    },
+    "SENDGRID_USERNAME": {
+      "generator":"secret"
     }
   },
   "formation": {
