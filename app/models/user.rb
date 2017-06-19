@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :question_votes, dependent: :destroy
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.find_by(email: auth.info.email)
