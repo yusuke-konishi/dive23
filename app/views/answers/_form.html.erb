@@ -1,14 +1,6 @@
 <%= form_for([question, answer], remote: true) do |f| %>
-  <% if answer.errors.any? %>
-      <h2><%= answer.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      <% answer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-  <% end %>
   <%= f.hidden_field :question_id %>
-  <%= f.text_area :content, class:"editor" %>
+  <%= f.text_area :content, class:"editor",  required:true  %>
   <div class="editor-preview"><p style="text-align:center">preview入る予定</p></div>
   </div>
   <%= f.submit class:"submit-button",value:"回答を投稿" %>
