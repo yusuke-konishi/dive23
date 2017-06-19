@@ -3,7 +3,11 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
-      @questions = Question.all
+    @questions = Question.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
@@ -17,8 +21,8 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(questions_params)
+    @question.user_id = current_user.id
     @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
-    # @question.user_id = current_user.id
     if @question.save
       redirect_to root_path, notice:"投稿されました"
     else
@@ -41,6 +45,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @answer = @question.answers.build
+    @answers = @question.answers
   end
 
   private

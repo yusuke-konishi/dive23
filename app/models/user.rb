@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
 
   has_many :questions
-  has_many :answers
+  has_many :answers, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :votes, dependent: :destroy
 

@@ -48,49 +48,15 @@
           <li class="current_tab"><a href="#">票</a></li>
         </ul>
     </div>
-    <ul class="q-list">
-      <li class="q-item">
-        <div class="evaluation">
-          <a class="evaluation-good"></a>
-          <p id="evaluation-count">0</p>
-          <a class="evaluation-bad"></a>
-        </div>
-        <div class="summary">
-          <p class="q-text-show">マルウェア解析のためのサンドボックスの実現手法としては，Xenなどのハードウェア仮想化技術やQEMUなどのエミュレーション技術が知られています． マルウェアの多くはこうしたサンドボックスを検出しようとする（evasive malware）ため，マルウェアから検出されにくいtransparentなサンドボックスが望まれています． しかし，RDTSCやICMP ...</p>
-          <div class="q-show-link-box">
-            <a href="#">共有</a><a href="#">この質問を改善する</a>
-          </div>
-          <div class="user-block">
-            <div class="log"><p>回答日時:30分前</p></div>
-            <div class="user">
-              <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
-              <div class="user-name-box">
-                <a class="user-name" href="">yamada</a>
-                <p class="user-info">
-                  <span class="reputation-score" title="信用度スコア: ">66</span>
-                  <span class="badge" title="5 個の銅バッジ">
-                    <span class="badge-icon badge3"></span>
-                    <span class="badgecount">5</span>
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div><!-- user-block -->
-        </div>
-      </li>
+    <ul id="answers_area" class="q-list">
+      <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
     </ul>
     <div class="answer">
       <h2>回答</h2>
-      <div class="editor">
-        <p style="text-align:center">editer入る予定</p>
-      </div>
-      <div class="editor-preview"><p style="text-align:center">preview入る予定</p></div>
-    </div>
-    <button class="submit-button">回答を投稿</button>
-    <p>質問を投稿することで<a href="#">プライバシー ポリシー</a>および<a href="#">サービス利用規約</a>に同意したものとみなされます。</p>
-    <p>求めていた回答ではありませんか?<a href="#" class="tag">php</a>のタグが付いた他の質問を参照するか、自分で質問をする。</p>
+      <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
+      <p>質問を投稿することで<a href="#">プライバシー ポリシー</a>および<a href="#">サービス利用規約</a>に同意したものとみなされます。</p>
+      <p>求めていた回答ではありませんか?<a href="#" class="tag">php</a>のタグが付いた他の質問を参照するか、自分で質問をする。</p>
   </main>
-
 
   <div id="sidebar">
     <div class="question-show__status box">
@@ -98,7 +64,6 @@
       <P><span>閲覧回数</span><span class="number" >38</span> 回</P>
       <P><span>アクティブ</span><span class="number" >2</span> 日前</P>
     </div>
-
     <div class="module">
       <h3 class="relative-q-title">関連する質問</h3>
       <ul id="relative-q-list">
