@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root 'top#index'
   resources 'questions'
   resources 'tags'
-  resources 'bookmarks'
+  resources 'bookmarks', only: [:create, :destroy]
   resources 'users', only: [:index, :show]
 
   if Rails.env.development?
