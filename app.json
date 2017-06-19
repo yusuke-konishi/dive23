@@ -23,10 +23,10 @@
       "required": true
     },
     "SENDGRID_PASSWORD": {
-      "generator":"secret"
+      "required": true
     },
     "SENDGRID_USERNAME": {
-      "generator":"secret"
+      "required": true
     }
   },
   "formation": {
