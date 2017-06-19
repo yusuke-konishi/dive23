@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :answers
   end
   resources 'tags'
-  resources 'bookmarks'
+  resources 'bookmarks', only: [:create, :destroy]
   resources 'users', only: [:index, :show]
 
   if Rails.env.development?
