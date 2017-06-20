@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', ->
-  $('#question_tag_list').tagit
-    singleField: true,
-    availableTags: myProject.all_tag_list
+  $('ul#question-tags').tagit
+    fieldName: 'question[tag_list]'
+    singleField: true
