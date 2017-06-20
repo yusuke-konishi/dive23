@@ -9,7 +9,7 @@
     </div>
       <div class="q-block">
         <div class="evaluation">
-          <% if @question.user == current_user %>
+          <% if @question.user.id == current_user.id %>
             <a class="evaluation-good" onClick="window.alert('自分の質問には投票できません');"></a>
           <% else %>
             <%= link_to "", plus_question_question_votes_path(question_id: @question.id), method: :post, class: 'evaluation-good' %>
@@ -44,7 +44,9 @@
               </div>
             </div>
           </div><!-- user-block -->
-          <%= link_to "編集", edit_question_path(@question.id), class:"q-title" %>
+          <% if current_user.id == @question.user.id %>
+            <%= link_to "編集", edit_question_path(@question.id), class:"q-title" %>
+          <% end %>
           <div class="q-show-add-comment">
             <a href="#">コメント追加</a>
           </div>
