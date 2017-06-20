@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(questions_params)
     @question.user_id = current_user.id
+    @question.tag_list = params[:question][:tag_list]
     @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
     if @question.save
       redirect_to root_path, notice:"投稿されました"
@@ -51,7 +52,7 @@ class QuestionsController < ApplicationController
 
   private
     def questions_params
-      params.require(:question).permit(:title,:content)
+      params.require(:question).permit(:title,:content,:tag_list)
     end
     def set_question
       @question = Question.find(params[:id])
