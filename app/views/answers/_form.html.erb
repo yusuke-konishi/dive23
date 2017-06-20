@@ -3,5 +3,11 @@
   <%= f.text_area :content, class:"editor",  required:true  %>
   <div class="editor-preview"><p style="text-align:center">preview入る予定</p></div>
   </div>
-  <%= f.submit class:"submit-button",value:"回答を投稿" %>
+  <% if @question.user == current_user %>
+    <%= f.submit id:"myQuestion",class:"submit-button",value:"回答を投稿" %>
+  <% elsif user_signed_in? %>
+    <%= f.submit class:"submit-button",value:"回答を投稿" %>
+  <% else %>
+    <%= f.submit id:"notLogin",class:"submit-button",value:"回答を投稿" %>
+  <% end %>
 <% end %>
