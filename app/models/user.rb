@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-
   has_many :questions
   has_many :answers, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_questions, through: :bookmarks, source: :question
   has_many :votes, dependent: :destroy
   has_many :question_votes, dependent: :destroy
 
