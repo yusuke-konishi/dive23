@@ -1,5 +1,4 @@
 class QuestionsController < ApplicationController
-  # before_action :authenticate_user!
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,6 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    authenticate_user!
     if params[:back]
       @question = Question.new(questions_params)
       @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
