@@ -25,9 +25,8 @@ class QuestionsController < ApplicationController
     @question.tag_list = params[:question][:tag_list]
     @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
     if @question.save
-      redirect_to root_path, notice:"投稿されました"
+      redirect_to questions_path, notice:"投稿されました"
     else
-      redirect_to root_path, alert:"未入力の項目があります"
       @question = Question.new(questions_params)
     end
   end
