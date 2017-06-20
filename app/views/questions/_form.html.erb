@@ -5,6 +5,9 @@
 
   <%= f.label :tag_list, "キーワード" %>
   <%= f.text_field :tag_list, value: @question.tag_list.join(',') %>
+  <div class="field">
+    <ul id="question-tags"></ul>
+  </div>
   <!--<input type="text" class="edit-tags" name="edit-tag" placeholder="(css java ruby) のようなタグが少なくとも 1 つ必要です。最高タグ数は 5 です">-->
   <%= f.submit '投稿する',class:"submit-button"%>
 <% end %>
