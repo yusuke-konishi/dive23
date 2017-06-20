@@ -1,5 +1,0 @@
-<% unless current_user.bookmarks.find_by(question_id: question.id).present? %>
-  <%= render 'bookmarks/clip', question: question %>
-<% else %>
-  <%= render 'bookmarks/unclip', question: question %>
-<% end %>

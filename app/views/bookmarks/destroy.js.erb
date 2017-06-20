@@ -1,1 +1,1 @@
-$('#bookmark-clip').html('<%=escape_javascript(render 'bookmarks/bookmark_form', question: @question) %>');
+$('#bookmark-clip').html("<%= j(render partial: 'bookmarks/bookmark', locals: { question: @question, bookmark: @bookmark }) %>")
