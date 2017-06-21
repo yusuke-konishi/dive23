@@ -9,7 +9,14 @@ Rails.application.routes.draw do
 
   root 'top#index'
   resources :questions do
-    resources :answers
+    resources :answers do
+      resources :answer_votes, only: [] do
+        collection do
+          post :plus
+          post :minus
+        end
+      end
+    end
     resources :question_votes, only: [] do
       collection do
         post :plus
