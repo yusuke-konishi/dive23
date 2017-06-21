@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="bookmarkedquestion">
+    <tr>
+      <th>投票された数</th>
+      <th>質問のタイトル</th>
+      <th>内容</th>
+      <th>作成日</th>
+    </tr>
+    <% current_user.bookmarks.each do |bookmark| %>
+    <tr>
+      <td class="bookmarkedquestion-td"><%= bookmark.question.vote_count %>票</td>
+      <td class="bookmarkedquestion-td"><%= bookmark.question.title %></td>
+      <td class="bookmarkedquestion-td"><%= bookmark.question.content %></td>
+      <td class="bookmarkedquestion-td"><%= bookmark.question.created_at %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
