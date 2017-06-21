@@ -38,9 +38,9 @@
           <div class="user-block q-show-bg">
             <div class="log"><p>質問日時:30分前</p></div>
             <div class="user q-show">
-              <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
+              <div class="user-avatar"><%= profile_img(@question.user) %></div>
               <div class="user-name-box">
-                <a class="user-name" href="">yamada</a>
+                <%= link_to @question.user.name, user_path(@question.id), class:"user-name" %>
                 <p class="user-info">
                   <span class="reputation-score" title="信用度スコア: ">66</span>
                 </p>
