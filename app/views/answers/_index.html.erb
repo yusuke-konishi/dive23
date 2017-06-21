@@ -2,9 +2,17 @@
   <% unless answer.id.nil? %>
     <li class="q-item">
       <div class="evaluation">
-        <a class="evaluation-good"></a>
+        <% if answer.user.id == current_user.id %>
+          <a class="evaluation-good" onClick="window.alert('自分の回答には投票できません');"></a>
+        <% else %>
+          <%= link_to "", plus_question_answer_answer_votes_path(question_id: answer.question_id, answer_id: answer.id), method: :post, class: 'evaluation-good' %>
+        <% end %>
         <p id="evaluation-count"><%= answer.vote_count %></p>
-        <a class="evaluation-bad"></a>
+        <% if answer.user.id == current_user.id %>
+          <a class="evaluation-bad" onClick="window.alert('自分の回答には投票できません');"></a>
+        <% else %>
+          <%= link_to "", minus_question_answer_answer_votes_path(question_id: answer.question_id, answer_id: answer.id), method: :post, class: 'evaluation-bad' %>
+        <% end %>
       </div>
       <div class="summary">
         <p class="q-text-show"><%= answer.content %></p>
