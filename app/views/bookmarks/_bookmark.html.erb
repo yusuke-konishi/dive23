@@ -4,4 +4,6 @@
 <% else %>
   <%= render 'bookmarks/clip', question: @question %>
 <% end %>
+<% else %>
+<%= link_to 'お気に入りにするには、ログインまたは登録してください。', new_user_session_path  %>
 <% end %>
