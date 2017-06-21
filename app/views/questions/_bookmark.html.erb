@@ -11,7 +11,7 @@
       <td class="bookmarkedquestion-td"><%= bookmark.question.vote_count %>票</td>
       <td class="bookmarkedquestion-td"><%= bookmark.question.title %></td>
       <td class="bookmarkedquestion-td"><%= bookmark.question.content %></td>
-      <td class="bookmarkedquestion-td"><%= bookmark.question.created_at %></td>
+      <td class="bookmarkedquestion-td"><%= bookmark.question.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
     </tr>
   <% end %>
   </table>
