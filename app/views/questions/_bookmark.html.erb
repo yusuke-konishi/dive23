@@ -2,15 +2,13 @@
   <table class="bookmarkedquestion">
     <tr>
       <th>投票された数</th>
-      <th>質問のタイトル</th>
-      <th>内容</th>
+      <th>質問のタイトル（クリックするとリンク先に飛べます）</th>
       <th>作成日</th>
     </tr>
     <% current_user.bookmarks.each do |bookmark| %>
     <tr>
       <td class="bookmarkedquestion-td"><%= bookmark.question.vote_count %>票</td>
-      <td class="bookmarkedquestion-td"><%= bookmark.question.title %></td>
-      <td class="bookmarkedquestion-td"><%= bookmark.question.content %></td>
+      <td class="bookmarkedquestion-td"><%= link_to question_path(bookmark.question) do %><%= bookmark.question.title %><% end %></td>
       <td class="bookmarkedquestion-td"><%= bookmark.question.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
     </tr>
   <% end %>
