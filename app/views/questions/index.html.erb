@@ -16,10 +16,10 @@
         <li class="q-item">
           <div class="count-wrap">
             <div class="votes box">
-              <p>0<sapn class="num-text">票</sapn></p>
+              <p><%= question.vote_count %><sapn class="num-text">票</sapn></p>
             </div>
             <div class="status box">
-              <p>0<span class="num-text">回答</span></p>
+              <p><%= question.answers.count %><span class="num-text">回答</span></p>
             </div>
             <div class="views box">
               <p><span class="read-count">1230件の閲覧数</span></p>
