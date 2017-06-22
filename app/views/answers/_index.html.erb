@@ -15,7 +15,7 @@
           <div class="log"><p>回答日時:30分前</p></div>
           <div class="user">
             <div class="user-name-box">
-              <%= link_to answer.user.name, user_path(answer.id), class:"user-name" %>
+              <%= link_to answer.user.name, user_path(answer.user.id), class:"user-name" %>
               <p class="user-info">
                 <span class="reputation-score" title="信用度スコア: ">66</span>
                 <span class="badge" title="5 個の銅バッジ">
