@@ -35,7 +35,7 @@
               <p><%= question.answers.count %><span class="num-text">回答</span></p>
             </div>
             <div class="views">
-              <p>8<span class="num-text">閲覧数</span></p>
+              <p><span class="num-text">閲覧数</span></p>
             </div>
           </div>
           <div class="summary">
@@ -44,7 +44,12 @@
             </h3>
               <a class="tag">python</a>
               <a class="tag">centos</a>
-            <div class="log"><a>更新日時: 5分前</a><a>x001017</a><p>1325</p></div>
+
+            <div class="log">
+              <p>更新日時: <%= time_ago_in_words question.user.created_at %>前</p>
+              <a><%= question.user.name %></a>
+              <p>1325</p>
+            </div>
           </div>
         </li>
       <% end %>
@@ -61,7 +66,9 @@
         <ul>
         <li><span class="stats-value"><%= @questions.count %></span><span class="stats-label">質問</span></li>
         <li><span class="stats-value"><%= @answers.count %></span><span class="stats-label">回答</span></li>
-        <li><span class="stats-value">80%</span><span class="stats-label">回答済</span></li>
+        <li>
+          <span class="stats-value"><%= (@answers.select(:question_id).uniq.count.to_f / @questions.count.to_f * 100).floor %>％</span><span class="stats-label">回答済</span>
+        </li>
         <li><span class="stats-value"><%= @users.count %></span><span class="stats-label">ユーザー</span></li>
         <li><span class="stats-value">8,122</span><span class="stats-label">訪問／日</span></li>
         </ul>
