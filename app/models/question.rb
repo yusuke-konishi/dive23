@@ -7,6 +7,7 @@ class Question < ActiveRecord::Base
   has_many :question_votes, dependent: :destroy
   has_many :question_vote_users, through: :question_votes, source: :user
   has_many :bookmarked_users, through: :bookmarks, source: :user
+  has_many :bookmarks, dependent: :destroy
 
   acts_as_taggable
 end
