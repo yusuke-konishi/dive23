@@ -34,10 +34,9 @@
             <div class="user-block">
               <div class="log"><p><a>質問日時: </a>14年12月19日 8:02</p></div>
               <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
+                <div class="user-avatar"><%= profile_img(question.user) %></div>
                 <div class="user-name-box">
-                  <a class="user-name" href="">yamada</a>
-                  <%= link_to question.user.name, user_path(question.user) %>
+                  <%= link_to question.user.name, user_path(question.user),class: "user-name" %>
                   <p class="user-info">
                     <span class="reputation-score" title="信用度スコア: ">66</span>
                     <span class="badge" title="5 個の銅バッジ">
