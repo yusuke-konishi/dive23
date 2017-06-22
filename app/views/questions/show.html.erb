@@ -40,7 +40,7 @@
             <div class="user q-show">
               <div class="user-avatar"><%= profile_img(@question.user) %></div>
               <div class="user-name-box">
-                <%= link_to @question.user.name, user_path(@question.id), class:"user-name" %>
+                <%= link_to @question.user.name, user_path(@question.user.id), class:"user-name" %>
                 <p class="user-info">
                   <span class="reputation-score" title="信用度スコア: ">66</span>
                 </p>
