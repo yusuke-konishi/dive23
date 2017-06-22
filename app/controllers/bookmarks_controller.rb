@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-  before_action: authenticate_user!
   def create
     @question = Question.find(params[:bookmark][:question_id])
     @bookmark = Bookmark.new(user_id: current_user.id, question_id: @question.id)
