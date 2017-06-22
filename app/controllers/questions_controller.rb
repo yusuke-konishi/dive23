@@ -46,6 +46,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    authenticate_user!
     @answer = @question.answers.build
     @answers = @question.answers
   end
