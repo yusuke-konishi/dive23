@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
-    @questions = Question.all
+    @questions =  Question.last(14)
     respond_to do |format|
       format.html
       format.js
