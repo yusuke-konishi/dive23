@@ -10,6 +10,9 @@ class QuestionVotesController < ApplicationController
       @question.vote_count = @question.vote_count + 1
       @question.save
 
+      @user.reputation_count = @user.reputation_count + 1
+      @user.save
+
       redirect_to question_path(@question), notice: "質問に +1 投票しました"
     else
       if @question_vote.vote_state == 0
@@ -19,6 +22,9 @@ class QuestionVotesController < ApplicationController
         @question.vote_count = @question.vote_count + 1
         @question.save
 
+        @user.reputation_count = @user.reputation_count + 1
+        @user.save
+
         redirect_to question_path(@question), notice: "質問に +1 投票しました"
       elsif @question_vote.vote_state == -1
         @question_vote.vote_state = 0
@@ -26,6 +32,9 @@ class QuestionVotesController < ApplicationController
 
         @question.vote_count = @question.vote_count + 1
         @question.save
+
+        @user.reputation_count = @user.reputation_count + 1
+        @user.save
 
         redirect_to question_path(@question), notice: "質問の投票をリセットしました"
       else # @question_vote.vote_state == 1
@@ -43,6 +52,9 @@ class QuestionVotesController < ApplicationController
       @question.vote_count = @question.vote_count - 1
       @question.save
 
+      @user.reputation_count = @user.reputation_count - 1
+      @user.save
+
       redirect_to question_path(@question), notice: "質問に -1 投票しました"
     else
       if @question_vote.vote_state == 0
@@ -52,6 +64,9 @@ class QuestionVotesController < ApplicationController
         @question.vote_count = @question.vote_count - 1
         @question.save
 
+        @user.reputation_count = @user.reputation_count - 1
+        @user.save
+
         redirect_to question_path(@question), notice: "質問に -1 投票しました"
       elsif @question_vote.vote_state == 1
         @question_vote.vote_state = 0
@@ -59,6 +74,9 @@ class QuestionVotesController < ApplicationController
 
         @question.vote_count = @question.vote_count - 1
         @question.save
+
+        @user.reputation_count = @user.reputation_count - 1
+        @user.save
 
         redirect_to question_path(@question), notice: "質問の投票をリセットしました"
       else # @question_vote.vote_state == -1
@@ -71,5 +89,6 @@ class QuestionVotesController < ApplicationController
     def check_question_vote
       @question = Question.find(params[:question_id])
       @question_vote = @question.question_votes.find_by(user_id: current_user.id)
+      @user = @question.user
     end
 end
