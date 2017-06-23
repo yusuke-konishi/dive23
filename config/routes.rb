@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root 'top#index'
   resources :questions do
+    resources :bookmarks, only: [:index, :create, :destroy]
     resources :answers do
       resources :answer_votes, only: [] do
         collection do
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
   resources 'tags'
-  resources 'bookmarks', only: [:create, :destroy]
+
   resources 'users', only: [:index, :show]
 
   if Rails.env.development?
