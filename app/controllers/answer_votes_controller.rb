@@ -3,6 +3,7 @@ class AnswerVotesController < ApplicationController
   def plus
     answer = Answer.find(params[:answer_id])
     answer_vote = answer.answer_votes.find_by(user_id: current_user.id)
+    user = answer.user
 
     if answer_vote.blank?
       answer_vote = current_user.answer_votes.build(answer_id: params[:answer_id])
@@ -11,6 +12,9 @@ class AnswerVotesController < ApplicationController
 
       answer.vote_count = answer.vote_count + 1
       answer.save
+
+      user.reputation_count = user.reputation_count + 1
+      user.save
 
       redirect_to question_path(answer.question), notice: "回答に +1 投票しました"
     else
@@ -21,6 +25,9 @@ class AnswerVotesController < ApplicationController
         answer.vote_count = answer.vote_count + 1
         answer.save
 
+        user.reputation_count = user.reputation_count + 1
+        user.save
+
         redirect_to question_path(answer.question), notice: "回答に +1 投票しました"
       elsif answer_vote.vote_state == -1
         answer_vote.vote_state = 0
@@ -28,6 +35,9 @@ class AnswerVotesController < ApplicationController
 
         answer.vote_count = answer.vote_count + 1
         answer.save
+
+        user.reputation_count = user.reputation_count + 1
+        user.save
 
         redirect_to question_path(answer.question), notice: "回答の投票をリセットしました"
       else # answer_vote.vote_state == 1
@@ -39,6 +49,7 @@ class AnswerVotesController < ApplicationController
   def minus
     answer = Answer.find(params[:answer_id])
     answer_vote = answer.answer_votes.find_by(user_id: current_user.id)
+    user = answer.user
 
     if answer_vote.blank?
       answer_vote = current_user.answer_votes.build(answer_id: params[:answer_id])
@@ -47,6 +58,9 @@ class AnswerVotesController < ApplicationController
 
       answer.vote_count = answer.vote_count - 1
       answer.save
+
+      user.reputation_count = user.reputation_count - 1
+      user.save
 
       redirect_to question_path(answer.question), notice: "回答に -1 投票しました"
     else
@@ -57,6 +71,9 @@ class AnswerVotesController < ApplicationController
         answer.vote_count = answer.vote_count - 1
         answer.save
 
+        user.reputation_count = user.reputation_count - 1
+        user.save
+
         redirect_to question_path(answer.question), notice: "回答に -1 投票しました"
       elsif answer_vote.vote_state == 1
         answer_vote.vote_state = 0
@@ -64,6 +81,9 @@ class AnswerVotesController < ApplicationController
 
         answer.vote_count = answer.vote_count - 1
         answer.save
+
+        user.reputation_count = user.reputation_count - 1
+        user.save
 
         redirect_to question_path(answer.question), notice: "回答の投票をリセットしました"
       else # answer_vote.vote_state == -1

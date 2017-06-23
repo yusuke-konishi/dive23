@@ -38,7 +38,7 @@
                 <div class="user-name-box">
                   <%= link_to question.user.name, user_path(question.user),class: "user-name" %>
                   <p class="user-info">
-                    <span class="reputation-score" title="信用度スコア: ">66</span>
+                    <span class="reputation-score" title="信用度スコア: "><%= question.user.reputation_count %></span>
                     <span class="badge" title="5 個の銅バッジ">
                       <span class="badge-icon badge3"></span>
                       <span class="badgecount">5</span>
