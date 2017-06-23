@@ -1,7 +1,7 @@
 == stackoverflowに似せたアプリ開発
 
 スタックオーバーフローに似せたアプリをGithubフローで開発しています。
-https://dive23.herokuapp.com/
+https://dive23.herokuapp.com
 
 * Ruby version 2.3.0
 * Rails version 4.2.3
