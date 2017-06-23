@@ -16,10 +16,10 @@
         <li class="q-item">
           <div class="count-wrap">
             <div class="votes box">
-              <p>0<sapn class="num-text">票</sapn></p>
+              <p><%= question.vote_count %><sapn class="num-text">票</sapn></p>
             </div>
             <div class="status box">
-              <p>0<span class="num-text">回答</span></p>
+              <p><%= question.answers.count %><span class="num-text">回答</span></p>
             </div>
             <div class="views box">
               <p><span class="read-count">1230件の閲覧数</span></p>
@@ -34,10 +34,9 @@
             <div class="user-block">
               <div class="log"><p><a>質問日時: </a>14年12月19日 8:02</p></div>
               <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
+                <div class="user-avatar"><%= profile_img(question.user) %></div>
                 <div class="user-name-box">
-                  <a class="user-name" href="">yamada</a>
-                  <%= link_to question.user.name, user_path(question.user) %>
+                  <%= link_to question.user.name, user_path(question.user),class: "user-name" %>
                   <p class="user-info">
                     <span class="reputation-score" title="信用度スコア: ">66</span>
                     <span class="badge" title="5 個の銅バッジ">

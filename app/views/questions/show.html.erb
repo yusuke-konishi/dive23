@@ -9,7 +9,7 @@
     </div>
       <div class="q-block">
         <div class="evaluation">
-          <% if @question.user == current_user %>
+          <% if @question.user.id == current_user.id %>
             <a class="evaluation-good" onClick="window.alert('自分の質問には投票できません');"></a>
           <% else %>
             <%= link_to "", plus_question_question_votes_path(question_id: @question.id), method: :post, class: 'evaluation-good' %>
@@ -38,16 +38,18 @@
           <div class="user-block q-show-bg">
             <div class="log"><p>質問日時:30分前</p></div>
             <div class="user q-show">
-              <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
+              <div class="user-avatar"><%= profile_img(@question.user) %></div>
               <div class="user-name-box">
-                <a class="user-name" href="">yamada</a>
+                <%= link_to @question.user.name, user_path(@question.user.id), class:"user-name" %>
                 <p class="user-info">
                   <span class="reputation-score" title="信用度スコア: ">66</span>
                 </p>
               </div>
             </div>
           </div><!-- user-block -->
-          <%= link_to "編集", edit_question_path(@question.id), class:"q-title" %>
+          <% if current_user.id == @question.user.id %>
+            <%= link_to "編集", edit_question_path(@question.id), class:"q-title" %>
+          <% end %>
           <div class="q-show-add-comment">
             <a href="#">コメント追加</a>
           </div>
@@ -55,7 +57,7 @@
       </div>
     </div>
     <div class="__head question-answer-head">
-        <h2>１件の回答</h2>
+        <h2><%= @question.answers.count %> 件の回答</h2>
         <ul>
           <li><a href="#">アクティブ</a></li>
           <li><a href="#">古い順</a></li>
