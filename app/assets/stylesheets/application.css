@@ -667,6 +667,15 @@ main .__head .current_tab a {
   font-size: 12px;
   color: #9199a1;
   line-height: 1;
+  margin-top: 5px;
+}
+
+.log p{
+  margin-top: 2px;
+}
+.log a{
+  margin: 0 5px;
+  font-size: 14px;
 }
 
 .summary .user {
