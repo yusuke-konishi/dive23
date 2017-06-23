@@ -28,12 +28,12 @@
             <p class="user-name"><%= @user.name %></p>
             <p class="user-card-tag">総合の上位 0.90%</p>
           </div>
-          <p class="profile-text">C#開発者（WPF・画像処理）<br>モバイルやWebもたまに</p>
+          <p class="profile-text"><%= @user.profile %></p>
         </div>
         <div class="profiele-other">
           <div class="fx3-box">
-            <p>409<span>回答</span></p>
-            <p>4<span>質問</span></p>
+            <p><%= @user.answers.count %><span>回答</span></p>
+            <p><%= @user.questions.count %><span>質問</span></p>
             <p>~33万<span>人にリーチ</span></p>
           </div>
           <ul>
