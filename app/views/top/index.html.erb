@@ -2,12 +2,6 @@
   <main>
     <div class="__head">
       <h2>質問を見る</h2>
-      <ul>
-        <li><a href="#">アクティブ</a></li>
-        <li><a href="#">人気</a></li>
-        <li><a href="#">今週</a></li>
-        <li><a href="#">今月</a></li>
-      </ul>
     </div>
     <div class="main-tag">
       <a href="#" class="tag">javascript</a>
@@ -25,65 +19,34 @@
     <div class="q-wrap">
       <div class="new-post-activity info-alert"><a href="#">1件の質問が更新されました</a></div>
       <ul class="q-list">
+      <% @questions.each do |question| %>
         <li class="q-item">
           <div class="count-wrap fx">
             <div class="votes">
-              <p>0<sapn class="num-text">票</sapn></p>
+              <p><%= question.vote_count %><sapn class="num-text">票</sapn></p>
             </div>
             <div class="status">
-              <p>0<span class="num-text">回答</span></p>
+              <p><%= question.answers.count %><span class="num-text">回答</span></p>
             </div>
             <div class="views">
-              <p>11<span class="num-text">閲覧数</span></p>
+              <p><span class="num-text">閲覧数</span></p>
             </div>
           </div>
           <div class="summary">
-            <h3><a class="q-title">Swift3でUIImageの色情報を抜き出す</a></h3>
-            <a class="tag">swift3</a>
-            <div class="log"><a>更新日時: 5分前</a><a>x001017</a><p>1325</p></div>
-          </div>
-        </li>
-      </ul>
-      <ul class="q-list">
-        <li class="q-item">
-          <div class="count-wrap fx">
-            <div class="votes">
-              <p>0<sapn class="num-text">票</sapn></p>
-            </div>
-            <div class="status">
-              <p>0<span class="num-text">回答</span></p>
-            </div>
-            <div class="views">
-              <p>8<span class="num-text">閲覧数</span></p>
-            </div>
-          </div>
-          <div class="summary">
-            <h3><a class="q-title">CentOS6へPython3.5をSCL経由でインストールしたのですが、Apacheで利用するには？</a></h3>
+            <h3>
+              <%= link_to question.title, question_path(question),method:"get", class:"q-title" %>
+            </h3>
               <a class="tag">python</a>
               <a class="tag">centos</a>
-            <div class="log"><a>更新日時: 5分前</a><a>x001017</a><p>1325</p></div>
+
+            <div class="log">
+              <p>更新日時: <%= time_ago_in_words question.user.created_at %>前</p>
+              <a><%= question.user.name %></a>
+              <p><%= question.user.reputation_count %></p>
+            </div>
           </div>
         </li>
-      </ul>
-      <ul class="q-list">
-        <li class="q-item">
-          <div class="count-wrap fx">
-            <div class="votes">
-              <p>0<sapn class="num-text">票</sapn></p>
-            </div>
-            <div class="status">
-              <p>0<span class="num-text">回答</span></p>
-            </div>
-            <div class="views">
-              <p>11<span class="num-text">閲覧数</span></p>
-            </div>
-          </div>
-          <div class="summary">
-            <h3><a class="q-title">Swift3でUIImageの色情報を抜き出す</a></h3>
-            <a class="tag">swift3</a>
-            <div class="log"><a>更新日時: 5分前</a><a>x001017</a><p>1325</p></div>
-          </div>
-        </li>
+      <% end %>
       </ul>
     </div>
     <a id="moreQuestions" class="button" href="#">質問をもっと見る</a>
@@ -95,10 +58,12 @@
     <div class="info-block" id="site-status">
       <h4 class="title">サイト統計情報</h4>
         <ul>
-        <li><span class="stats-value">11,465</span><span class="stats-label">質問</span></li>
-        <li><span class="stats-value">13,845</span><span class="stats-label">回答</span></li>
-        <li><span class="stats-value">80%</span><span class="stats-label">回答済</span></li>
-        <li><span class="stats-value">11,499</span><span class="stats-label">ユーザー</span></li>
+        <li><span class="stats-value"><%= @counter.questions %></span><span class="stats-label">質問</span></li>
+        <li><span class="stats-value"><%= @counter.answers %></span><span class="stats-label">回答</span></li>
+        <li>
+          <span class="stats-value"><%= @counter.HasAnswer %>％</span><span class="stats-label">回答済</span>
+        </li>
+        <li><span class="stats-value"><%= @counter.users %></span><span class="stats-label">ユーザー</span></li>
         <li><span class="stats-value">8,122</span><span class="stats-label">訪問／日</span></li>
         </ul>
     </div>

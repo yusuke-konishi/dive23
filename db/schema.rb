@@ -11,36 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618073058) do
+ActiveRecord::Schema.define(version: 20170623112918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answer_votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "answer_id"
+    t.integer  "vote_state", default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "question_id"
     t.text     "content"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "vote_count",  default: 0
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
   add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "bookmarks", force: :cascade do |t|
-    t.integer  "question_id"
     t.integer  "user_id"
+    t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  add_index "bookmarks", ["question_id"], name: "index_bookmarks_on_question_id", using: :btree
+  add_index "bookmarks", ["user_id", "question_id"], name: "index_bookmarks_on_user_id_and_question_id", unique: true, using: :btree
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+
+  create_table "question_votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "vote_state",  default: 0
   end
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
     t.integer  "user_id"
-    t.integer  "vote_count", default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "vote_count",      default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "bookmarks_count", default: 0
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -85,6 +107,8 @@ ActiveRecord::Schema.define(version: 20170618073058) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "avatar"
+    t.integer  "reputation_count",       default: 0
+    t.text     "profile"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -94,4 +118,6 @@ ActiveRecord::Schema.define(version: 20170618073058) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
+  add_foreign_key "bookmarks", "questions"
+  add_foreign_key "bookmarks", "users"
 end
