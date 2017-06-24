@@ -27,8 +27,8 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(questions_params)
     @question.user_id = current_user.id
-    @question.tag_list = params[:question][:tag_list]
-    @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
+    @question.tag_list = params[:tags]
+    # binding.pry
     if @question.save
       redirect_to questions_path, notice:"投稿されました"
     else
@@ -69,7 +69,8 @@ class QuestionsController < ApplicationController
 
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
-      
+    end
+
     def set_question_tags_to_gon
     #  gon.question_tags = @question.tag_list
     end
