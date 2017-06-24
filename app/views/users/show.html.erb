@@ -48,6 +48,29 @@
       <div class="profiele-bookmark">
         <%= render partial: "questions/bookmark" %>
       </div>
+
+      <ul class="nav nav-tabs pull-right">
+        <li class="active"><a data-toggle="tab" href="#user-questions">質問</a></li>
+        <li><a data-toggle="tab" href="#user-answers">回答</a></li>
+        <li><a data-toggle="tab" href="#user-votes">票</a></li>
+        <li><a data-toggle="tab" href="#user-bookmarks">お気に入り</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="user-questions" class="tab-pane fade in active">
+          <p>自分の質問一覧をここに入れる</p>
+        </div>
+        <div id="user-answers" class="tab-pane fade">
+          <p>自分の回答一覧をここに入れる</p>
+        </div>
+        <div id="user-votes" class="tab-pane fade">
+          <p>自分の投票一覧をここに入れる</p>
+        </div>
+        <div id="user-bookmarks" class="tab-pane fade">
+          <div class="profiele-bookmark">
+            <%= render partial: "questions/bookmark" %>
+          </div>
+      </div>
     </div>
   </main>
   </div>
