@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  acts_as_taggable
-
 
   has_many :questions
   has_many :answers, dependent: :destroy

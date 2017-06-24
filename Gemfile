@@ -15,7 +15,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'jquery-ui-rails'
 gem 'gon'
-gem 'jquery-turbolinks'
 
 # admin
 gem 'rails_admin'
