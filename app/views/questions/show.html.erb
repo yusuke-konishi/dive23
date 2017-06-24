@@ -54,12 +54,12 @@
       </div>
     </div>
     <div class="__head question-answer-head">
-        <h2><%= @question.answers.count %> 件の回答</h2>
-        <ul>
-          <li><a href="#">アクティブ</a></li>
-          <li><a href="#">古い順</a></li>
-          <li class="current_tab"><a href="#">票</a></li>
-        </ul>
+      <h2><%= @question.answers.count %> 件の回答</h2>
+      <ul>
+        <li><a href="#">アクティブ</a></li>
+        <li><a href="#">古い順</a></li>
+        <li class="current_tab"><a href="#">票</a></li>
+      </ul>
     </div>
     <ul id="answers_area" class="q-list">
       <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
