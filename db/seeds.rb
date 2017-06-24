@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-3.times do |i|
+9.times do |i|
   name = "review0#{i+1} user"
   email = "review0#{i+1}@dive23.com"
   password = "password"
@@ -25,13 +25,13 @@
   i = i + 1
 end
 
-3.times do |j|
+9.times do |j|
   Question.create!(user_id: j+1,
                title: "review0#{j+1} user と申しますが…",
                content: "Rails がさっぱりわかりません。この先どうすれば…？"
                )
 
-    3.times do |k|
+    9.times do |k|
       Answer.create!(question_id: j+1,
                   user_id: k+1,
                   content: "review0#{k+1} user と申しますが、どうにもなりません。"

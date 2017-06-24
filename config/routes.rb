@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     end
   end
   resources 'tags'
-  resources 'bookmarks', only: [:create, :destroy]
   resources 'users', only: [:index, :show]
+  resources :bookmarks, only: [:create, :destroy]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

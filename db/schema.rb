@@ -59,9 +59,10 @@ ActiveRecord::Schema.define(version: 20170623112918) do
     t.string   "title"
     t.string   "content"
     t.integer  "user_id"
-    t.integer  "vote_count", default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "vote_count",      default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "bookmarks_count", default: 0
   end
 
   create_table "taggings", force: :cascade do |t|
