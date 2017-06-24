@@ -11,13 +11,15 @@
   email = "review0#{i+1}@dive23.com"
   password = "password"
   uid = "review0#{i+1}"
+  profile = "My name is review0#{i+1}. Ruby on Rails 歴 10#{i+1} 年です。"
 
   User.create!(name: name,
                email: email,
                password: password,
                password_confirmation: password,
                uid: uid,
-               confirmed_at: Time.now
+               confirmed_at: Time.now,
+               profile: profile
                )
 
   i = i + 1

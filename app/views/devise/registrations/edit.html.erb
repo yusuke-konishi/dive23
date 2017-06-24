@@ -9,8 +9,12 @@
         <%= f.text_field :name, class: "form-control" %>
       </div>
       <div class="field">
+        <%= f.label :プロフィール %>
+        <%= f.text_area :profile, class: "form-control form-control-textarea", :rows => "4" %>
+      </div>
+      <div class="field">
         <%= f.label :メールアドレス %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.email_field :email, class: "form-control" %>
       </div>
       <% if @user.provider.blank? %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
