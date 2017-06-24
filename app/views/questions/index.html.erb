@@ -3,12 +3,13 @@
     <div class="__head">
       <h2>すべての質問</h2>
       <ul>
+        <li><%= page_entries_info @questions %></li>
         <li class="current_tab"><%= sortable "created_at", "新着" %></li>
-        <li><a href="#link">リンク最多</a></li>
+        <!--<li><a href="#link">リンク最多</a></li>-->
         <li><%= sortable "vote_count", "票" %></li>
         <li><%= sortable "bookmarks_count", "お気に入りランク" %></li>
         <li><%= sortable "updated_at", "アクティブ" %></li>
-        <li><a href="#notyet">未解決</a></li>
+        <!--<li><a href="#notyet">未解決</a></li>-->
       </ul>
     </div>
     <div class="q-wrap">
@@ -53,6 +54,7 @@
         </li>
       <% end %>
       </ul>
+      <%= paginate(@bookmarks, :theme => 'default') %>
     </div>
   </main>
 

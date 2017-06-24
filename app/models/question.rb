@@ -10,4 +10,5 @@ class Question < ActiveRecord::Base
   has_many :bookmarks, dependent: :destroy
 
   acts_as_taggable
+  paginates_per 15
 end

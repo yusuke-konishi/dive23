@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @questions = Question.all.includes(:user).order(sort_column + ' ' + sort_direction)
+    @questions = Question.select(:id, :title, :content, :created_at, :updated_at).includes(:user).page(params[:page]).order(sort_column + ' ' + sort_direction)
     respond_to do |format|
       format.html
       format.js
@@ -62,7 +62,7 @@ class QuestionsController < ApplicationController
     def sort_column
       Question.column_names.include?(params[:sort]) ? params[:sort] : "updated_at"
     end
-    
+
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
     end
