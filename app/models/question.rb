@@ -10,4 +10,9 @@ class Question < ActiveRecord::Base
   has_many :bookmarks, dependent: :destroy
 
   acts_as_taggable
+  scope :index_all, -> {
+  select(:id, :title, :content, :created_at, :user_id, :updated_at, :vote_count, :bookmarks_count)
+  .includes(:user)
+  }
+  paginates_per 4
 end
