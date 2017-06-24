@@ -17,14 +17,3 @@
 //= require_tree .
 //= require jquery-ui/autocomplete
 //= require tag-it
-
-$(function(){
-  $('.alert').ready(function(){
-    setTimeout(function(){
-      $('.alert').hide(1000);
-    },5000);
-  });
-  $("#star").click(function () {
-    $(this).toggleClass("star-on");
-  });
-});

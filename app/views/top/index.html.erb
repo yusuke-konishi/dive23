@@ -2,12 +2,6 @@
   <main>
     <div class="__head">
       <h2>質問を見る</h2>
-      <ul>
-        <li><a href="#">アクティブ</a></li>
-        <li><a href="#">人気</a></li>
-        <li><a href="#">今週</a></li>
-        <li><a href="#">今月</a></li>
-      </ul>
     </div>
     <div class="main-tag">
       <a href="#" class="tag">javascript</a>
@@ -64,12 +58,12 @@
     <div class="info-block" id="site-status">
       <h4 class="title">サイト統計情報</h4>
         <ul>
-        <li><span class="stats-value"><%= @questions_count %></span><span class="stats-label">質問</span></li>
-        <li><span class="stats-value"><%= @answers_count %></span><span class="stats-label">回答</span></li>
+        <li><span class="stats-value"><%= @counter.questions %></span><span class="stats-label">質問</span></li>
+        <li><span class="stats-value"><%= @counter.answers %></span><span class="stats-label">回答</span></li>
         <li>
-          <span class="stats-value"><%= @HasAnswer %>％</span><span class="stats-label">回答済</span>
+          <span class="stats-value"><%= @counter.HasAnswer %>％</span><span class="stats-label">回答済</span>
         </li>
-        <li><span class="stats-value"><%= @users_count %></span><span class="stats-label">ユーザー</span></li>
+        <li><span class="stats-value"><%= @counter.users %></span><span class="stats-label">ユーザー</span></li>
         <li><span class="stats-value">8,122</span><span class="stats-label">訪問／日</span></li>
         </ul>
     </div>
