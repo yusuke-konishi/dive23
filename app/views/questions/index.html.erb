@@ -5,7 +5,8 @@
       <ul>
         <li class="current_tab"><a href="#">新着</a></li>
         <li><a href="#link">リンク最多</a></li>
-        <li><a href="#vote">票</a></li>
+        <li><%= sortable "vote_count", "票" %></li>
+        <li><%= sortable "bookmarks_count", "お気に入りランク" %></li>
         <li><a href="#active">アクティブ</a></li>
         <li><a href="#notyet">未解決</a></li>
       </ul>
