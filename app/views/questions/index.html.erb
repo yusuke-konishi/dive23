@@ -37,11 +37,7 @@
                 <div class="user-name-box">
                   <%= link_to question.user.name, user_path(question.user),class: "user-name" %>
                   <p class="user-info">
-                    <span class="reputation-score" title="信用度スコア: "><%= question.user.reputation_count %></span>
-                    <span class="badge" title="5 個の銅バッジ">
-                      <span class="badge-icon badge3"></span>
-                      <span class="badgecount">5</span>
-                    </span>
+                    <span class="reputation-score" title="信用度スコア: ">信用度：<%= (question.user.reputation_count)+1 %></span>
                   </p>
                 </div>
               </div>
@@ -57,8 +53,8 @@
 
   <div id="sidebar">
     <div class="question-status box" id="question-status box">
-      <h4 class="title">2,036</h4>
-      <p>質問</p>
+      <h4 class="title"><%= @questions.count %></h4>
+      <p>件の質問</p>
     </div>
 
     <div class="module" id="recent-tags">
