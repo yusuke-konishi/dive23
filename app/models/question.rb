@@ -12,7 +12,6 @@ class Question < ActiveRecord::Base
   acts_as_taggable
   scope :index_all, -> {
   select(:id, :title, :content, :created_at, :user_id, :updated_at, :vote_count, :bookmarks_count)
-  .order(created_at: :desc)
   .includes(:user)
   }
   paginates_per 4
