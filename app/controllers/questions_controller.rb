@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @questions = Question.all.order(sort_column + ' ' + sort_direction)
+    @questions = Question.all.order(sort_column + ' ' + sort_direction).last(14)
     respond_to do |format|
       format.html
       format.js
