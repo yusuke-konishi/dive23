@@ -276,7 +276,9 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   if Rails.env.production?
     config.omniauth :facebook, ENV["FACEBOOK_ID_PRODUCTION"], ENV["FACEBOOK_SECRET_PRODUCTION"], scope: 'email', display: 'popup', info_fields: 'name, email'
+    config.omniauth :google_oauth2, ENV["GOOGLE_ID_PRODUCTION"], ENV["GOOGLE_SECRET_PRODUCTION"], scope: 'email', display: 'popup', info_fields: 'name, email'
   else
     config.omniauth :facebook, ENV["FACEBOOK_ID_DEVELOPMENT"], ENV["FACEBOOK_SECRET_DEVELOPMENT"], scope: 'email', display: 'popup', info_fields: 'name, email'
+    config.omniauth :google_oauth2, ENV["GOOGLE_ID_DEVELOPMENT"], ENV["GOOGLE_SECRET_DEVELOPMENT"], scope: 'email', display: 'popup', info_fields: 'name, email'
   end
 end
