@@ -1,7 +1,7 @@
 <div class="user_edit_content">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
-  <h2 class="user_info_title">ユーザ情報の編集</h2>
+  <h2 class="user_info_title">マイページ</h2>
   <div class="user_info">
     <div class="mypage_maincontent">
       <div class="field">
@@ -21,16 +21,16 @@
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
         <div class="field">
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password, autocomplete: "off", class: "form-control", :required => true %>
+        </div>
+        <div class="field">
           <%= f.label :password %>
           <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
         </div>
         <div class="field">
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-        </div>
-        <div class="field">
-          <%= f.label :current_password %>
-          <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
         </div>
       <% end %>
       <div class="clearfix">
