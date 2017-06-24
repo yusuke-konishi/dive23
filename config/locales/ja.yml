@@ -154,8 +154,9 @@ ja:
     label:
       user:
         email: メールアドレス
-        password: パスワード
-        password_confirmation: パスワード(確認)
+        current_password: 現在のパスワード（プロフィール変更時 入力必須）
+        password: 変更したいパスワードを記入してください
+        password_confirmation: 変更パスワード確認
         remember_me: パスワードを記憶
   number:
     currency:
