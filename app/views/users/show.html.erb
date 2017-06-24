@@ -16,12 +16,7 @@
           <p class="profiele-image">
             <%= profile_img(@user) %>
           </p>
-          <p class="user-trust"><%= @user.reputation_count %><span>信用度<span></p>
-          <p>
-            <span>1</span>
-            <span>5</span>
-            <span>26</span>
-          </p>
+          <p class="user-trust">信用度：<%= (@user.reputation_count)+1 %></p>
         </div>
         <div class="profiele-info">
           <div class="user-card-name">
