@@ -22,6 +22,10 @@
   color: #242729;
   font-size: 11px;
 }
+.bookmarks_count{
+  color: #242729;
+  font-size: 11px;
+}
 .delete_btn{
   color: #555;
   background: #ccc;
@@ -303,3 +307,15 @@ label{
 		}
   }
 }
+
+.bookmarkedquestion {
+    width: 80%;
+    margin: 10px;
+    font-size:15px;
+}
+
+.bookmarkedquestion-td  {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #333333;
+  }

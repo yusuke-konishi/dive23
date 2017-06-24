@@ -4,11 +4,9 @@ class AnswersController < ApplicationController
     @question = @answer.question
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to question_path(@question) }
         format.js { render :index }
       else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity}
+        format.js { render :new }
       end
     end
   end
