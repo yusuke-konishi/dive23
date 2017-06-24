@@ -1,8 +1,4 @@
 class BookmarksController < ApplicationController
-  def index
-    @bookmarks = Bookmark.all.includes(:question)
-  end
-
   def create
     @question = Question.find(params[:bookmark][:question_id])
     @bookmark = Bookmark.new(user_id: current_user.id, question_id: @question.id)
@@ -14,6 +10,7 @@ class BookmarksController < ApplicationController
          format.html { redirect_to question_path(@question) }
       end
     end
+    @bookmarks = Bookmark.where(question_id: params[:question_id])
   end
 
   def destroy
@@ -27,5 +24,6 @@ class BookmarksController < ApplicationController
          format.html { redirect_to question_path(@question) }
       end
     end
+    @bookmarks = Bookmark.where(question_id: params[:question_id])
   end
 end
