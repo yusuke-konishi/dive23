@@ -17,6 +17,7 @@ gem 'jquery-ui-rails'
 gem 'gon'
 gem 'twitter-bootstrap-rails'
 gem 'kaminari'
+gem 'jquery-turbolinks'
 
 # admin
 gem 'rails_admin'
