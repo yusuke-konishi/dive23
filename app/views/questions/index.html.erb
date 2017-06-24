@@ -3,7 +3,6 @@
     <div class="__head">
       <h2>すべての質問</h2>
       <ul>
-        <li><%= page_entries_info @questions %></li>
         <li class="current_tab"><%= sortable "created_at", "新着" %></li>
         <!--<li><a href="#link">リンク最多</a></li>-->
         <li><%= sortable "vote_count", "票" %></li>
@@ -54,7 +53,7 @@
         </li>
       <% end %>
       </ul>
-      <%= paginate(@bookmarks, :theme => 'default') %>
+      <%= paginate @questions %>
     </div>
   </main>
 
