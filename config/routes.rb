@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root 'top#index'
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources 'users', only: [:index, :show]
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources 'users', only: [:index, :show]
   resources :questions do
     resources :answers do
       resources :answer_votes, only: [] do
