@@ -35,6 +35,11 @@
       </div>
     </div>
     <div class="l-grid main-content">
+      <% if flash[:notice] %>
+        <div class="alert alert-success text-center">
+          <%= notice %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
     <footer>
