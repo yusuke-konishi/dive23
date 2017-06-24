@@ -91,7 +91,9 @@
 
 
   <div id="sidebar" class="mt5">
-    <button class="question-buttton"><a href="/questions/new/">質問する</a></button>
+    <button class="question-buttton">
+      <%= link_to "質問する", new_question_path %>
+    </button>
     <div class="info-block" id="site-status">
       <h4 class="title">サイト統計情報</h4>
         <ul>

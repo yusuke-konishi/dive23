@@ -30,7 +30,13 @@
               <%= link_to question.title, question_path(question),method:"get", class:"q-title" %>
             </h3>
             <p class="q-text"><%= question.content %>...</p>
-            <a class="tag">swift3</a>
+            <!-- tag表示　-->
+            <%= include_gon %>
+            <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+            <!-- tag表示　-->
+            <div id="question-tags">
+              <%= question.tag_list %>
+            </div>
             <div class="user-block">
               <div class="log"><p><a>質問日時: </a>14年12月19日 8:02</p></div>
               <div class="user">

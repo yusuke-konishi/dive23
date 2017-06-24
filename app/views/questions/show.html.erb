@@ -17,6 +17,10 @@
         </div>
         <div class="summary">
           <p class="q-text-show"><%= @question.content %></p>
+          <!-- tag表示　-->
+          <%= include_gon %>
+          <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+          <!-- tag表示　-->
           <a class="tag">swift3</a>
           <div class="q-show-link-box">
             <a href="#">共有</a><a href="#">この回答を改善する</a>

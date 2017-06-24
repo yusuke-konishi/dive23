@@ -1,9 +1,14 @@
 class QuestionsController < ApplicationController
   # before_action :authenticate_user!
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question_tags_to_gon, only: [:index, :show, :edit]
+  before_action :set_available_tags_to_gon, only: [:index, :show, :new, :edit]
+
 
   def index
     @questions = Question.all
+    @questions = Question.all.includes(:tags)
+    gon.question_tags = @questions.map { |q| q.tag_list }
     respond_to do |format|
       format.html
       format.js
@@ -13,9 +18,10 @@ class QuestionsController < ApplicationController
   def new
     if params[:back]
       @question = Question.new(questions_params)
-      @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
+      @question_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
     else
       @question = Question.new
+      gon.question_tags = ActsAsTaggableOn::Tag.all.pluck(:name)
     end
   end
 
@@ -52,9 +58,19 @@ class QuestionsController < ApplicationController
 
   private
     def questions_params
-      params.require(:question).permit(:title,:content,:tag_list)
+      params.require(:question).permit(:title, :content, :tag_list)
     end
+
     def set_question
       @question = Question.find(params[:id])
+    end
+
+    def set_question_tags_to_gon
+
+    #  gon.question_tags = @question.tag_list
+    end
+
+    def set_available_tags_to_gon
+      gon.available_tags = Question.tags_on(:tags).pluck(:name)
     end
 end
