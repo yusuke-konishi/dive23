@@ -4,7 +4,6 @@ class QuestionsController < ApplicationController
   before_action :set_question_tags_to_gon, only: [:index, :show, :edit]
   before_action :set_available_tags_to_gon, only: [:index, :show, :new, :edit]
 
-
   def index
     @questions = Question.all
     @questions = Question.all.includes(:tags)
@@ -60,13 +59,11 @@ class QuestionsController < ApplicationController
     def questions_params
       params.require(:question).permit(:title, :content, :tag_list)
     end
-
     def set_question
       @question = Question.find(params[:id])
     end
 
     def set_question_tags_to_gon
-
     #  gon.question_tags = @question.tag_list
     end
 

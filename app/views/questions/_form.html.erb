@@ -4,22 +4,24 @@
   <%= f.text_area :content, class: "editor",required:true %>
 
   <%= f.label :tag_list, "タグ" %>
-  <!-- <div class="field"> -->
-  <ul class="tagit ui-widget ui-widget-content ui-corner-all">
-    <div id="question-tags">
+   <!-- <div class="field"> -->
+   <ul class="tagit ui-widget ui-widget-content ui-corner-all">
+     <div id="question-tags">
       <%= text_field_tag "tags" %>
-    </div>
-  <!-- </div> -->
-  </ul>
+     </div>
+    <!-- </div> -->
+   </ul>
+  <!--<input type="text" class="edit-tags" name="edit-tag" placeholder="(css java ruby) のようなタグが少なくとも 1 つ必要です。最高タグ数は 5 です">-->
   <%= f.submit '投稿する',class:"submit-button"%>
 <% end %>
+
 <script>
-(function(){
-  if (gon.question_tags != null) {
-      var tags = gon.question_tags
-      $('#question-tags').tagit({
-      availableTags: tags
-    });
-  }
-});
-</script>
+   (function(){
+     if (gon.question_tags != null) {
+       var tags = gon.question_tags
+       $('#question-tags').tagit({
+       availableTags: tags
+     });
+   }
+ });
+ </script>
