@@ -1,4 +1,5 @@
 <%= form_for(@question) do |f| %>
+
   <%= f.label :タイトル %>
   <%= f.text_field :title, class: "edit-title", placeholder:"プログラミングに関しての質問は何ですか？具体的に書いてください。",required:true%>
   <%= f.text_area :content, class: "editor",required:true %>
@@ -7,7 +8,7 @@
    <!-- <div class="field"> -->
    <ul class="tagit ui-widget ui-widget-content ui-corner-all">
      <div id="question-tags">
-      <%= text_field_tag "tags" %>
+       <%= f.text_field :tag_list, value: @question.tag_list.join(',') %>
      </div>
     <!-- </div> -->
    </ul>
