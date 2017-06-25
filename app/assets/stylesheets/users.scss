@@ -135,14 +135,12 @@ main .__head .user-links a:hover{
 }
 
 .user-trust{
-  font-size: 22px;
-  line-height: 17px;
-  color: #181a1c;
-}
-.user-trust span{
-  font-size: 11px;
+  font-size: 18px;
   color: #999;
-  padding-left: 6px;
+  span{
+    color: #0C0D0E;
+    padding-left: 3px;
+  }
 }
 .profiele-other{
   width: 266px;
