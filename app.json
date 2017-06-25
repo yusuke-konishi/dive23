@@ -27,6 +27,12 @@
     },
     "SENDGRID_USERNAME": {
       "required": true
+    },
+    "GOOGLE_ID_PRODUCTION": {
+ +      "required": true
+ +  },
+ +    "GOOGLE_SECRET_PRODUCTION": {
+ +      "required": true
     }
   },
   "formation": {
