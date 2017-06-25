@@ -1,4 +1,5 @@
 <%= form_for(@question) do |f| %>
+
   <%= f.label :タイトル %>
   <%= f.text_field :title, class: "edit-title", placeholder:"プログラミングに関しての質問は何ですか？具体的に書いてください。",required:true%>
   <%= f.text_area :content, class: "editor",required:true %>

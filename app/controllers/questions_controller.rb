@@ -20,6 +20,7 @@ class QuestionsController < ApplicationController
       @question_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
     else
       @question = Question.new
+      @question_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
       gon.question_tags = ActsAsTaggableOn::Tag.all.pluck(:name)
     end
   end
@@ -28,7 +29,6 @@ class QuestionsController < ApplicationController
     @question = Question.new(questions_params)
     @question.user_id = current_user.id
     @question.tag_list = params[:tags]
-    # binding.pry
     if @question.save
       redirect_to questions_path, notice:"投稿されました"
     else
