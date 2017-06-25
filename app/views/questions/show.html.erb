@@ -37,7 +37,7 @@
               <div class="user-name-box">
                 <%= link_to @question.user.name, user_path(@question.user.id), class:"user-name" %>
                 <p class="user-info">
-                  <span class="reputation-score" title="信用度スコア: "><%= (@question.user.reputation_count)+1 %></span>
+                  <span class="reputation-score" title="信用度スコア: ">信用度：<%= (@question.user.reputation_count)+1 %></span>
                 </p>
               </div>
             </div>
