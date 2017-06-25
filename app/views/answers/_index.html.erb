@@ -2,9 +2,17 @@
   <% unless answer.id.nil? %>
     <li class="q-item">
       <div class="evaluation">
-        <a class="evaluation-good"></a>
-        <p id="evaluation-count">0</p>
-        <a class="evaluation-bad"></a>
+        <% if answer.user.id == current_user.id %>
+          <a class="evaluation-good" onClick="window.alert('自分の回答には投票できません');"></a>
+        <% else %>
+          <%= link_to "", plus_question_answer_answer_votes_path(question_id: answer.question_id, answer_id: answer.id), method: :post, class: 'evaluation-good' %>
+        <% end %>
+        <p id="evaluation-count"><%= answer.vote_count %></p>
+        <% if answer.user.id == current_user.id %>
+          <a class="evaluation-bad" onClick="window.alert('自分の回答には投票できません');"></a>
+        <% else %>
+          <%= link_to "", minus_question_answer_answer_votes_path(question_id: answer.question_id, answer_id: answer.id), method: :post, class: 'evaluation-bad' %>
+        <% end %>
       </div>
       <div class="summary">
         <p class="q-text-show"><%= answer.content %></p>
@@ -14,11 +22,10 @@
         <div class="user-block">
           <div class="log"><p>回答日時:30分前</p></div>
           <div class="user">
-            <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
             <div class="user-name-box">
-              <a class="user-name" href=""><%= answer.user.name %></a>
+              <%= link_to answer.user.name, user_path(answer.user.id), class:"user-name" %>
               <p class="user-info">
-                <span class="reputation-score" title="信用度スコア: ">66</span>
+                <span class="reputation-score" title="信用度スコア: "><%= answer.user.reputation_count %></span>
                 <span class="badge" title="5 個の銅バッジ">
                   <span class="badge-icon badge3"></span>
                   <span class="badgecount">5</span>

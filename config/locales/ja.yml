@@ -145,6 +145,13 @@ ja:
         one: "%{model}にエラーが発生しました"
         other: "%{model}に%{count}個のエラーが発生しました"
   helpers:
+    page_entries_info:
+      one_page:
+        zero: "<b>該当データがありません。</b>"
+        one: "<b>1件中 1-1 件を表示</b>"
+        display_entries: '%{entry_name}の1-%{count}件を表示中 / 合計%{count}件'
+      more_pages:
+        display_entries: '%{entry_name}の%{first}-%{last}件を表示中 / 合計%{total}件'
     select:
       prompt: 選択してください
     submit:
@@ -154,8 +161,9 @@ ja:
     label:
       user:
         email: メールアドレス
-        password: パスワード
-        password_confirmation: パスワード(確認)
+        current_password: 現在のパスワード（プロフィール変更時 入力必須）
+        password: 変更したいパスワードを記入してください
+        password_confirmation: 変更パスワード確認
         remember_me: パスワードを記憶
   number:
     currency:
@@ -217,6 +225,8 @@ ja:
     pm: 午後
   views:
     pagination:
-      previous: "« 前ページ"
-      next: "次ページ »"
+      first: 先頭
+      last: 最終
+      previous: 前ページ
+      next: 次ページ
       truncate: "..."

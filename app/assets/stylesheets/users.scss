@@ -135,14 +135,12 @@ main .__head .user-links a:hover{
 }
 
 .user-trust{
-  font-size: 22px;
-  line-height: 17px;
-  color: #181a1c;
-}
-.user-trust span{
-  font-size: 11px;
+  font-size: 18px;
   color: #999;
-  padding-left: 6px;
+  span{
+    color: #0C0D0E;
+    padding-left: 3px;
+  }
 }
 .profiele-other{
   width: 266px;
@@ -200,15 +198,6 @@ main .__head .user-links a:hover{
   padding-left: 20px;
   background-repeat: no-repeat;
   background-size: 15px;
-}
-.profiele-other .ic_refresh{
-  background-image: url(ic_refresh.svg);
-}
-.profiele-other .ic_eye{
-  background-image: url(ic_eye.svg);
-}
-.profiele-other .ic_time{
-  background-image: url(ic_time.svg);
 }
 
 // ユーザー新規登録画面　users/sign_in
@@ -341,5 +330,13 @@ main .__head .user-links a:hover{
       background-color: rgba(0,119,204,0.1);
       color: #07c;
     }
+  }
+  .back_btn{
+    margin: 5px 30px 0 5px;
+    display: inline-block;
+  }
+  .form-control-textarea{
+    width: 94%;
+    margin-bottom: 10px;
   }
 }
