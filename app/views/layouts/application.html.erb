@@ -22,13 +22,9 @@
         </div>
         <div class="right-col">
           <% if user_signed_in? %>
-          <!--<li><%= link_to 'マイページ', edit_user_registration_path %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>-->
           <a href="/users/edit" class="mypage">マイページ</a>
           <a href="/users/sign_out" class="logout", data-method="delete">ログアウト</a>
           <% else %>
-          <!--<li><%= link_to 'ログイン', new_user_session_path  %></li>
-          <li><%= link_to 'サインアップ', new_user_registration_path %></li>-->
           <a href="/users/sign_in" class="login">ログイン</a>
           <a href="/users/sign_up" class="button">登録</a>
           <% end %>
@@ -36,6 +32,11 @@
       </div>
     </div>
     <div class="l-grid main-content">
+      <% if flash[:notice] %>
+        <div class="alert alert-success text-center">
+          <%= notice %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
     <footer>

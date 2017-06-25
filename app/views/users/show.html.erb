@@ -16,24 +16,19 @@
           <p class="profiele-image">
             <%= profile_img(@user) %>
           </p>
-          <p class="user-trust">10,848<span>信用度<span></p>
-          <p>
-            <span>1</span>
-            <span>5</span>
-            <span>26</span>
-          </p>
+          <p class="user-trust">信用度：<span><%= @user.reputation_count %></span></p>
         </div>
         <div class="profiele-info">
           <div class="user-card-name">
             <p class="user-name"><%= @user.name %></p>
             <p class="user-card-tag">総合の上位 0.90%</p>
           </div>
-          <p class="profile-text">C#開発者（WPF・画像処理）<br>モバイルやWebもたまに</p>
+          <p class="profile-text"><%= @user.profile %></p>
         </div>
         <div class="profiele-other">
           <div class="fx3-box">
-            <p>409<span>回答</span></p>
-            <p>4<span>質問</span></p>
+            <p><%= @user.answers.count %><span>件の回答</span></p>
+            <p><%= @user.questions.count %><span>件の質問</span></p>
             <p>~33万<span>人にリーチ</span></p>
           </div>
           <ul>
@@ -42,6 +37,77 @@
             <li class="item ic_time">前回のログイン 34 分前</li>
           </ul>
         </div>
+      </div>
+      <hr>
+
+      <ul class="nav nav-tabs pull-right">
+        <li class="active"><a data-toggle="tab" href="#user-questions">質問</a></li>
+        <li><a data-toggle="tab" href="#user-answers">回答</a></li>
+        <li><a data-toggle="tab" href="#user-bookmarks">お気に入り</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="user-questions" class="tab-pane fade in active">
+          <table class="table">
+            <thead>
+              <tr>
+                <td width="15%"><strong>投票数</strong></td>
+                <td><strong>質問</strong></td>
+                <td width="25%"><strong>質問の投稿日時</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.questions.each do |question| %>
+              <tr>
+                <td><%= question.vote_count %></td>
+                <td><%= link_to question_path(question) do %><%= question.title %><% end %></td>
+                <td><%= question.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div id="user-answers" class="tab-pane fade">
+          <table class="table">
+            <thead>
+              <tr>
+                <td width="15%"><strong>投票数</strong></td>
+                <td><strong>回答した質問</strong></td>
+                <td width="25%"><strong>質問の投稿日時</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.answers.each do |answer| %>
+              <tr>
+                <td><%= answer.question.vote_count %></td>
+                <td><%= link_to question_path(answer.question) do %><%= answer.question.title %><% end %></td>
+                <td><%= answer.question.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div id="user-bookmarks" class="tab-pane fade">
+          <div class="profiele-bookmark">
+            <table class="table">
+              <thead>
+                <tr>
+                  <td width="15%"><strong>お気に入りの数</strong></td>
+                  <td><strong>お気に入りの質問</strong></td>
+                  <td width="25%"><strong>質問の投稿日時</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+                <% @user.bookmarks.each do |bookmark| %>
+                <tr>
+                  <td><%= bookmark.question.bookmarks_count %></td>
+                  <td><%= link_to question_path(bookmark.question) do %><%= bookmark.question.title %><% end %></td>
+                  <td><%= bookmark.question.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
       </div>
     </div>
   </main>

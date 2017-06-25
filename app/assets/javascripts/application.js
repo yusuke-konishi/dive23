@@ -12,12 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+//= require twitter/bootstrap
+//= require turbolinks
+
 //= require_tree .
 //= require jquery-ui/autocomplete
 //= require tag-it
-
-$(function(){
-  $("#star").click(function () {
-    $(this).toggleClass("star-on");
-  });
-});

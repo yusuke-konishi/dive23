@@ -1,7 +1,7 @@
 <div class="user_edit_content">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
-  <h2 class="user_info_title">ユーザ情報の編集</h2>
+  <h2 class="user_info_title">マイページ</h2>
   <div class="user_info">
     <div class="mypage_maincontent">
       <div class="field">
@@ -9,13 +9,21 @@
         <%= f.text_field :name, class: "form-control" %>
       </div>
       <div class="field">
+        <%= f.label :プロフィール %>
+        <%= f.text_area :profile, class: "form-control form-control-textarea", :rows => "4" %>
+      </div>
+      <div class="field">
         <%= f.label :メールアドレス %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.email_field :email, class: "form-control" %>
       </div>
       <% if @user.provider.blank? %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
+        <div class="field">
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password, autocomplete: "off", class: "form-control", :required => true %>
+        </div>
         <div class="field">
           <%= f.label :password %>
           <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
@@ -24,14 +32,12 @@
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
         </div>
-        <div class="field">
-          <%= f.label :current_password %>
-          <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-        </div>
       <% end %>
-      <%= f.submit "更新", class: "success_btn" %>
-      <%= button_to "登録解除", registration_path(resource_name), data: { confirm: "登録を解除しますか?" }, method: :delete, class: "cancel_btn" %>
-      <%= link_to "戻る", :back %>
+      <div class="clearfix">
+        <%= button_to "更新", registration_path(resource_name), method: :patch, class: "success_btn pull-left" %>
+        <%= button_to "登録解除", registration_path(resource_name), data: { confirm: "登録を解除しますか?" }, method: :delete, class: "cancel_btn pull-left" %>
+        <%= link_to "戻る", :back, class: "back_btn" %>
+      </div>
     </div>
     <div class="field mypage_image_content">
       <%= profile_img(@user) if profile_img(@user) %>

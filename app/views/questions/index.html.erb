@@ -3,11 +3,9 @@
     <div class="__head">
       <h2>すべての質問</h2>
       <ul>
-        <li class="current_tab"><a href="#">新着</a></li>
-        <li><a href="#link">リンク最多</a></li>
-        <li><a href="#vote">票</a></li>
-        <li><a href="#active">アクティブ</a></li>
-        <li><a href="#notyet">未解決</a></li>
+        <li class="current_tab"><%= sortable "created_at", "新着" %></li>
+        <li><%= sortable "vote_count", "票" %></li>
+        <li><%= sortable "bookmarks_count", "お気に入りランク" %></li>
       </ul>
     </div>
     <div class="q-wrap">
@@ -16,13 +14,14 @@
         <li class="q-item">
           <div class="count-wrap">
             <div class="votes box">
-              <p>0<sapn class="num-text">票</sapn></p>
+              <p><%= question.vote_count %><sapn class="num-text">票</sapn></p>
             </div>
             <div class="status box">
-              <p>0<span class="num-text">回答</span></p>
+              <p><%= question.answers.count %><span class="num-text">回答</span></p>
             </div>
             <div class="views box">
               <p><span class="read-count">1230件の閲覧数</span></p>
+              <p><span class="bookmarks_count"><%= question.bookmarks_count %> 件のお気に入り</span>
             </div>
           </div>
           <div class="summary">
@@ -36,33 +35,31 @@
             <div class="user-block">
               <div class="log"><p><a>質問日時: </a>14年12月19日 8:02</p></div>
               <div class="user">
-                <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
+                <div class="user-avatar"><%= profile_img(question.user) %></div>
                 <div class="user-name-box">
-                  <a class="user-name" href="">yamada</a>
-                  <%= link_to question.user.name, user_path(question.user) %>
+                  <%= link_to question.user.name, user_path(question.user),class: "user-name" %>
                   <p class="user-info">
-                    <span class="reputation-score" title="信用度スコア: ">66</span>
-                    <span class="badge" title="5 個の銅バッジ">
-                      <span class="badge-icon badge3"></span>
-                      <span class="badgecount">5</span>
-                    </span>
+                    <span class="reputation-score" title="信用度スコア: ">信用度：<%= question.user.reputation_count %></span>
                   </p>
                 </div>
               </div>
-              <%= link_to "削除", question_path(question.id), method: :delete, data: { confirm: '本当に削除しますか？'},class:"delete_btn"%>
             </div><!-- user-block -->
           </div>
         </li>
       <% end %>
       </ul>
+      <%= paginate @questions %>
     </div>
   </main>
 
 
   <div id="sidebar">
+    <button class="question-buttton">
+      <%= link_to "質問する", new_question_path, method: :get %>
+    </button>
     <div class="question-status box" id="question-status box">
-      <h4 class="title">2,036</h4>
-      <p>質問</p>
+      <h4 class="title"><%= Question.count %></h4>
+      <p>件の質問</p>
     </div>
 
     <div class="module" id="recent-tags">

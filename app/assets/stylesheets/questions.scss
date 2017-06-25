@@ -22,6 +22,10 @@
   color: #242729;
   font-size: 11px;
 }
+.bookmarks_count{
+  color: #242729;
+  font-size: 11px;
+}
 .delete_btn{
   color: #555;
   background: #ccc;
@@ -301,5 +305,41 @@ label{
         align-items: center;
       }
 		}
+  }
+}
+
+.bookmarkedquestion {
+    width: 80%;
+    margin: 10px;
+    font-size:15px;
+}
+
+.bookmarkedquestion-td  {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #333333;
+  }
+
+.tag_form {
+  .border-none{
+    border: none;
+  }
+  .text-icon{
+    display: none;
+  }
+  .tagit-choice{
+    padding: 8px 30px 5px 10px ;
+    margin: 0 5px 8px 0;
+    display: inline-block;
+    position: relative;
+  }
+  .ui-icon-close{
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+    top: 10px;
+  }
+  .tagit-new{
+    margin-top: 10px;
   }
 }

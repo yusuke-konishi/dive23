@@ -6,14 +6,17 @@
     <div class="q-list">
       <div class="q-block">
         <div class="evaluation">
-          <a class="evaluation-good"></a>
+          <% if @question.user.id == current_user.id %>
+            <a class="evaluation-good" onClick="window.alert('自分の質問には投票できません');"></a>
+          <% else %>
+            <%= link_to "", plus_question_question_votes_path(question_id: @question.id), method: :post, class: 'evaluation-good' %>
+          <% end %>
           <p id="evaluation-count"><%= @question.vote_count %></p>
-          <a class="evaluation-bad"></a>
-          <svg version="1.1" id="star" class="star star-off" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          	 viewBox="0 0 53.867 53.867" xml:space="preserve">
-          <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798
-          	10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
-          </svg>
+          <% if @question.user == current_user %>
+            <a class="evaluation-bad" onClick="window.alert('自分の質問には投票できません');"></a>
+          <% else %>
+            <%= link_to "", minus_question_question_votes_path(question_id: @question.id), method: :post, class: 'evaluation-bad' %>
+          <% end %>
         </div>
         <div class="summary">
           <p class="q-text-show"><%= @question.content %></p>
@@ -24,19 +27,26 @@
           <div class="q-show-link-box">
             <a href="#">共有</a><a href="#">この回答を改善する</a>
           </div>
+          <div id="bookmark-clip">
+            <p><%= render 'bookmarks/bookmark', locals: { bookmark: @bookmark, question: @question } %></p>
+          </div>
           <div class="user-block q-show-bg">
             <div class="log"><p>質問日時:30分前</p></div>
             <div class="user q-show">
-              <div class="user-avatar"><img src="https://placehold.jp/150x150.png" alt=""></div>
+              <div class="user-avatar"><%= profile_img(@question.user) %></div>
               <div class="user-name-box">
-                <a class="user-name" href="">yamada</a>
+                <%= link_to @question.user.name, user_path(@question.user.id), class:"user-name" %>
                 <p class="user-info">
-                  <span class="reputation-score" title="信用度スコア: ">66</span>
+                  <span class="reputation-score" title="信用度スコア: ">信用度：<%= @question.user.reputation_count %></span>
                 </p>
               </div>
             </div>
           </div><!-- user-block -->
-          <%= link_to "編集", edit_question_path(@question.id), class:"q-title" %>
+          <% if current_user.id == @question.user.id %>
+            <%= link_to "編集", edit_question_path(@question.id), class:"q-title" %>
+            <span> ｜ </span>
+            <%= link_to '削除', question_path(@question.id), class:"q-title" , method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
+          <% end %>
           <div class="q-show-add-comment">
             <a href="#">コメント追加</a>
           </div>
@@ -44,12 +54,12 @@
       </div>
     </div>
     <div class="__head question-answer-head">
-        <h2>１件の回答</h2>
-        <ul>
-          <li><a href="#">アクティブ</a></li>
-          <li><a href="#">古い順</a></li>
-          <li class="current_tab"><a href="#">票</a></li>
-        </ul>
+      <h2><%= @question.answers.count %> 件の回答</h2>
+      <ul>
+        <li><a href="#">アクティブ</a></li>
+        <li><a href="#">古い順</a></li>
+        <li class="current_tab"><a href="#">票</a></li>
+      </ul>
     </div>
     <ul id="answers_area" class="q-list">
       <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
