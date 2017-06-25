@@ -28,7 +28,6 @@ class QuestionsController < ApplicationController
     @question = Question.new(questions_params)
     @question.user_id = current_user.id
     @question.tag_list = params[:tags]
-    # binding.pry
     if @question.save
       redirect_to questions_path, notice:"投稿されました"
     else

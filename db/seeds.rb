@@ -44,13 +44,13 @@ end
 end
 
   ActsAsTaggableOn::Tag.create!(
-               name: "javascript",
+               name: "javascript",taggings_count:1,
                )
   ActsAsTaggableOn::Tag.create!(
-               name: "swift",
+               name: "swift",taggings_count:2,
                )
   ActsAsTaggableOn::Tag.create!(
-              name: "ios",
+              name: "ios",taggings_count:3,
               )
   ActsAsTaggableOn::Tag.create!(
               name: "android",
