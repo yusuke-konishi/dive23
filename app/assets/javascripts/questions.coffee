@@ -7,5 +7,5 @@ $(document).on 'ready page:load', ->
        singleField: true
      if gon.question_tags?
        baka = gon.question_tags
-         $('#question-tags').tagit
+       $('#question-tags').tagit
           availableTags: baka
