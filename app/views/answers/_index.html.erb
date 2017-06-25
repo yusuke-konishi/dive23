@@ -1,4 +1,4 @@
-<% answers.each do |answer| %>
+<% answers.order("created_at").each do |answer| %>
   <% unless answer.id.nil? %>
     <li class="q-item">
       <div class="evaluation">
